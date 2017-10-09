@@ -5,9 +5,31 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    test
-    
+    <div class="title">
+<h1><%= title %></h1>
+<p>Take a look at Africa tech ecosystem !</p>
+    </div>
+
+<div class="searchbar">
+
+
+  <input type="text" class="filter" id="searchname" placeholder="Enter the name of the organization you're looking for">
+  <input type="text" class="filter" id="searchcountry" placeholder="Ghana, Senegal...">
+  <select class="typecss" name="searchtype">
+    <option value="incubator">Incubator</option>
+    <option value="start-up">Start-up</option>
+  </select>
+  <input type="text" class="filter" id="searchregion" placeholder="West, East..">
+
+</div>
+
+<div class="map">
+
+</div>
+
+<button class="contribute" type="button" name="button">I want to contribute !</button>
+
+
+</div>
   </body>
 </html>
