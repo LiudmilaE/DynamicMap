@@ -21,6 +21,7 @@ a {
   border-radius: 5px;
     padding: 15px;
     width: 150px;
+    border: 1px grey solid;
 }
 .typecss{
   padding: 30px;
@@ -30,9 +31,25 @@ a {
 
 .title{
   text-align: center;
+  font-style: 50px;
+
+}
+.title p{
+  text-align: center;
+  font-size: 30px;
+
 }
 .searchbar {
   display: flex;
     justify-content: center;
 }
+
+#map {
+  height: 550px;
+  width: 100%;
+  background-color: grey;
+      }
+button .contribute{
+  display: flex;
+  justify-content: center;
 }
