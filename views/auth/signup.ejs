@@ -1,2 +1,27 @@
 <h2>Sign up</h2>
 
+<form action="/signup" method="POST" class="form-auth">
+	<label>Username
+		<input type="text" name="username" placeholder="Your name">
+	</label>
+	<br><br>
+	<label>Password
+		<input type="password" name="password" placeholder="Your password"></label>
+	<br><br>
+	<label>Email
+		<input type="email" name="email" placeholder="Your email@email"></label>
+	<br><br>
+	<label>Status
+		<select>
+			<option selected value="enterpreneur">Enterpreneur</option>
+			<option value="incubatorMember">Incubator's member</option>
+		</select></label>
+	<br><br>
+	<!--
+	<% if (typeof(errorMessage) != "undefined") { %>
+	<div class="error-message"><%= errorMessage %></div>
+<% } %>
+-->
+
+	<button>Create account</button>
+</form>

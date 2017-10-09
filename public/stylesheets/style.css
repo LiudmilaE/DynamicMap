@@ -70,7 +70,8 @@ button .contribute{
 }
 
 .form-auth input,
-.form-auth button {
+.form-auth button,
+.form-auth select {
   box-sizing: border-box;
   font-size: 14px;
   outline: 0;

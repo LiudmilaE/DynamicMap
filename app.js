@@ -20,6 +20,7 @@ mongoose.connect('mongodb://localhost/dynamic-map', {
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const authController = require('./routes/auth');
 
 const app = express();
 
@@ -37,12 +38,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(
+  session({
+    secret: 'dynamic-map',
+    resave: false,
+    saveUninitialized: true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
 app.use(flash());
 
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/', authController);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
