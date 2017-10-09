@@ -1,0 +1,23 @@
+<h2>Log in</h2>
+
+<form action="/login" method="POST" class="form">
+	<div>
+		<label>Username:
+		<input type="text" name="username">
+		</label>
+	</div>
+	<div>
+		<label>Password:
+		<input type="password" name="password">
+		</label>
+	</div>
+
+	<!--  to view the error message -->
+	 <% if (typeof message != "undefined") { %>
+    <div class="error-message"><%= errorMessage %></div>
+  <% } %>
+  
+	<div>
+		<input type="submit" value="Log In">
+	</div>
+</form>
