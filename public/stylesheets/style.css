@@ -36,13 +36,16 @@ a {
 }
 .contribute {
   background-color: #B9085C;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    border-radius: 3px;
-    border: none;
-    text-align: center;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 3px;
+  border: none;
+  text-align: center;
+}
 
+.contribute a {
+  color: white;
 }
 
 .filter {
@@ -109,11 +112,11 @@ font-size: 13px;
 
 #mainFooter {
   padding-bottom: 20px;
+  background-color: white;
 }
 
 .footer p {
   text-align: center;
-  font-weight: bold;
   margin: 60px auto 5px;
 }
 
@@ -133,8 +136,6 @@ font-size: 13px;
   outline: 0;
   padding: 4px;
   margin: 0 auto;
-
-
 }
 
 
@@ -150,7 +151,6 @@ font-size: 13px;
   text-decoration: none;
   text-transform: uppercase;
   transition: .3s ease background;
-
 }
 
 .form-auth button:hover {
@@ -160,10 +160,8 @@ font-size: 13px;
 }
 
 .error-message {
-  color: #F02B63;
+  color: #ce1d53;
   box-sizing: border-box;
-  
   margin: 20px auto;
   padding: 20px;
-
 }
