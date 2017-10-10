@@ -18,10 +18,6 @@ mongoose.connect('mongodb://localhost/dynamic-map', {
   useMongoClient: true,
 });
 
-const index = require('./routes/index');
-const users = require('./routes/users');
-const authController = require('./routes/auth');
-
 const app = express();
 
 // view engine setup
@@ -37,7 +33,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   session({
     secret: 'dynamic-map',
@@ -48,11 +43,77 @@ app.use(
 );
 app.use(flash());
 
+passport.serializeUser((user, cb) => {
+  cb(null, user.id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) {
+      return cb(err);
+    }
+    cb(null, user);
+  });
+});
+
+// Signing Up LocalStrategy TODO
+passport.use(
+  'local-signup',
+  new LocalStrategy(
+    {
+      passReqToCallback: true,
+      usernameField: 'email',
+    },
+    (req, email, password, next) => {
+      // To avoid race conditions
+      process.nextTick(() => {
+        // Destructure the body
+        const { username } = req.body;
+        const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+        const user = new User({
+          username,
+          email,
+          password: hashPass,
+          status,
+          //isAdmin,//??? how to add
+        });
+
+        user.save(err => {
+          if (err) {
+            // duplicated email
+            if (err.code === 11000) {
+              return next(null, false, {
+                message: `email ${email} is already used`,
+              });
+            }
+          }
+          next(err, user);
+        });
+      });
+    }
+  )
+);
+
+//login strategy TODO
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(path.join(__dirname, 'public')));
+
+const index = require('./routes/index');
+const users = require('./routes/users');
+const authController = require('./routes/auth');
+
+
+// app.use((req, res, next) => {
+//   res.locals.user = req.user;
+//   next();
+// });
 
 app.use('/', index);
 app.use('/users', users);
 app.use('/', authController);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
