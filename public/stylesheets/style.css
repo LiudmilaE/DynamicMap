@@ -24,6 +24,7 @@ a {
 }
 .container {
   margin-left: 25%;
+  height:800px;
 }
 .sidebar{
   position: fixed;
@@ -111,7 +112,10 @@ font-size: 13px;
 footer p {
         text-align: center;
         font-weight: bold;
-        margin-top: 40px;
+        bottom: 0;
+        position: absolute;
+       left: 40%;
+}
       }
 
 .form-auth label {
@@ -119,8 +123,6 @@ footer p {
   display: inline-block;
   margin-bottom: 10px;
   text-align: center;
-  margin: 0 auto;
-      width: 500px;
 }
 
 .form-auth input,
@@ -130,6 +132,8 @@ footer p {
   font-size: 14px;
   outline: 0;
   padding: 4px;
+  margin: 0 auto;
+
 
 }
 
