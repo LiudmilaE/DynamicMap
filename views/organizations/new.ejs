@@ -8,26 +8,61 @@
     </p>
   <% } %>
 
-<form action="/new" method="POST" class="form-auth">
-	<label>Name
-		<input type="text" name="name" placeholder="Your organization name">
-	</label>
-	<br><br>
-	<label>Description
-		<input type="text-area" name="description" placeholder="Organization's description"></label>
-	<br><br>
-	<label>Organization's contacts:
-		<input type="email" name="email" placeholder="email@email"></label>
-	<br><br>
-		<input type="tel" name="phone" placeholder="Phone number"></label>
-	<br><br>
-	<label>Category
-		<select name="category">
-			<option selected value="startup">Startup</option>
-			<option value="incubator">Incubator</option>
-		</select></label>
-	<br><br>
+<form action="/organizations/new" method="POST" class="form-auth">
 
-	<button>Send information</button>
+	<div class="field">
+		<label class="label">Name</label>
+		<div class="control">
+			<input type="text" name="name" placeholder="Your organization name" class="input">
+		</div>
+		
+	</div>
+	
+	<div class="field">
+		<label class="label">Description</label>
+		<div class="control">
+			<input type="text-area" name="description" placeholder="Organization's description" class='textarea'>
+		</div>
+	</div>
+
+	<div class="field">
+		<lable class="label">Email</label>
+			<div class="control">
+				<input type="email" name="email" placeholder="email@email" class="input">
+			</div>
+		
+	</div>
+
+	<div class="field">
+		<lable class="label">Phone</label>
+			<div class="control">
+				<input type="tel" name="phone" placeholder="Phone number" class="input">
+			</div>
+	</div>
+
+	<div class="field">
+		<lable class="label">Address</label>
+			<div class="control">
+				<input type="text" name="address" placeholder="Address" class="input">
+			</div>
+	</div>
+
+	<div class="field">
+		<label class="label">Category</label>
+		<div class="control">
+			<div class="select">
+				<select name="category">
+					<option selected value="startup">Startup</option>
+					<option value="incubator">Incubator</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	
+	<div class="field">
+	<div class="control">
+		<button class="button is-primary">Send information</button>
+	</div>
+	</div>
 
 </form>

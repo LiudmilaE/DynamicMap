@@ -26,16 +26,19 @@
 				<% if (!user) { %>
 				<div class="navbar-end">
 					<div class="navbar-item">
-						<a href="/login" class="navbar-item" >login</a>
+						<a href="/login" class="navbar-item" >Login</a>
 					</div>
 
 					<div class="navbar-item">
-						<a href="/signup" class="navbar-item">signup</a>
+						<a href="/signup" class="navbar-item">Signup</a>
 					</div>
 					<% } %>
 					<% if (user) { %>
 					<div class="navbar-item">
-						<a href="/logout" class="navbar-item">logout</a>
+						<a href="/logout" class="navbar-item">Logout</a>
+					</div>
+					<div class="navbar-item">
+						<a href="/organizations/new" class="navbar-item">Add new organization</a>
 					</div>
 					<% } %>
 				</div>
