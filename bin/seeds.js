@@ -3,11 +3,10 @@ const bcrypt         = require("bcryptjs");
 const bcryptSalt     = 10;
 const User = require('../models/user');
 
-mongoose.connect("mongodb://localhost/ibi-ironhack");
+mongoose.connect("mongodb://localhost/dynamic-map");
 const salt = bcrypt.genSaltSync(bcryptSalt);
-const password = "africa";
-const encryptedPass1 = bcrypt.hashSync(password, salt);
-const encryptedPass2 = 'ukraine';
+const encryptedPass1 = bcrypt.hashSync("africa", salt);
+const encryptedPass2 = bcrypt.hashSync('ukraine', salt);
 
 const admin1 = new User({
   username: 'Elodie',
