@@ -1,55 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
-  </head>
-  <body>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+	</head>
 
+	<body>
+		<nav class="navbar" role="navigation" aria-label="main navigation">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="/">
+					<h1> <a href="/"> <%= title %> </a> </h1>
+				</a>
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-      <h1> <a href="/"> <%= title %> </a> </h1>
-    </a>
+				<button class="button navbar-burger">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
 
-    <button class="button navbar-burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+			</div>
+			<div class="navbar-menu">
+				<% if (!user) { %>
+				<div class="navbar-end">
+					<div class="navbar-item">
+						<a href="/login" class="navbar-item" >login</a>
+					</div>
 
-  </div>
-    <div class="navbar-menu">
+					<div class="navbar-item">
+						<a href="/signup" class="navbar-item">signup</a>
+					</div>
+					<% } %>
+					<% if (user) { %>
+					<div class="navbar-item">
+						<a href="/logout" class="navbar-item">logout</a>
+					</div>
+					<% } %>
+				</div>
 
-  <div class="navbar-end">
-    <div class="navbar-item">
-      <a href="/login" class="navbar-item" >login</a>
-    </div>
+			</div>
+		</nav>
 
-    <div class="navbar-item">
-      <a href="/signup" class="navbar-item">signup</a>
-    </div>
-    <div class="navbar-item">
-      <a href="/logout" class="navbar-item">logout</a>
-    </div>
-  </div>
+		<div class="container">
 
-</div>
+		<%- body -%>
 
-
-</nav>
-<div class="container">
-
-
-    <%- body -%>
-
-    <footer>
-      <p> &copy; Elodie Wanang &amp; Liudmyla Iefremova </p>
-    </footer>
-
-    </div>
-  </body>
+		</div>
+		<footer class="footer" id="mainFooter">
+			<p> &copy; Elodie Wanang &amp; Liudmyla Iefremova </p>
+		</footer>
+	</body>
 </html>

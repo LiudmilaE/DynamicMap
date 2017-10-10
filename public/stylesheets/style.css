@@ -6,9 +6,6 @@ bleu: #634afb;
 turquoise: #34C6C9;*/
 
 
-
-
-
 title{
   color: white;
   }
@@ -24,7 +21,7 @@ a {
 }
 .container {
   margin-left: 25%;
-  height:800px;
+  height:700px;
 }
 .sidebar{
   position: fixed;
@@ -85,8 +82,8 @@ font-size: 13px;
 .maintitle{
   text-align: center;
   font-size: 30px;
-  margin-top: 35px;
-  margin-bottom: 35px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 
 }
 .title p{
@@ -105,18 +102,21 @@ font-size: 13px;
 
 #map {
   margin-top: 15px;
-  height: 685px;
+  height: 600px;
   width: 100%;
   background-color: grey;
-      }
-footer p {
-        text-align: center;
-        font-weight: bold;
-        bottom: 0;
-        position: absolute;
-       left: 40%;
 }
-      }
+
+#mainFooter {
+  padding-bottom: 20px;
+}
+
+.footer p {
+  text-align: center;
+  font-weight: bold;
+  margin: 60px auto 5px;
+}
+
 
 .form-auth label {
   color: #666;
