@@ -11,7 +11,9 @@ turquoise: #34C6C9;*/
 
 title{
   color: white;
-  }body {
+  }
+
+  body {
   /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: white;
@@ -79,9 +81,11 @@ font-size: 13px;
   background-color: #FFAD43;
 }
 
-.title{
+.maintitle{
   text-align: center;
-  font-style: 50px;
+  font-size: 30px;
+  margin-top: 35px;
+  margin-bottom: 35px;
 
 }
 .title p{
@@ -94,16 +98,20 @@ font-size: 13px;
   justify-content: center;
 }
 
+.navbar-brand h1 {
+  font-size: 25px;
+}
 
 #map {
   margin-top: 15px;
-  height: 700px;
+  height: 685px;
   width: 100%;
   background-color: grey;
       }
 footer p {
         text-align: center;
         font-weight: bold;
+        margin-top: 40px;
       }
 
 .form-auth label {
@@ -111,7 +119,8 @@ footer p {
   display: inline-block;
   margin-bottom: 10px;
   text-align: center;
-  width: 100%;
+  margin: 0 auto;
+      width: 500px;
 }
 
 .form-auth input,
