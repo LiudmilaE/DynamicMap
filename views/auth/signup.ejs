@@ -1,5 +1,12 @@
 <h2>Sign up</h2>
 
+<!--  to view the error message -->
+   <% if (errorMessage) { %>
+    <p class="error-message">
+      <%= errorMessage %>
+    </p>
+  <% } %>
+
 <form action="/signup" method="POST" class="form-auth">
 	<label>Username
 		<input type="text" name="username" placeholder="Your name">
@@ -17,11 +24,7 @@
 			<option value="incubatorMember">Incubator's member</option>
 		</select></label>
 	<br><br>
-	<!--
-	<% if (typeof(errorMessage) != "undefined") { %>
-	<div class="error-message"><%= errorMessage %></div>
-<% } %>
--->
+
 
 	<button>Create account</button>
 </form>

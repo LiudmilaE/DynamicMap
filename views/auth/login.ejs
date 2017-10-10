@@ -1,19 +1,26 @@
 <h2>Log in</h2>
 <div class="form">
 
+	<!--  to view the error message -->
+	 <% if (errorMessage) { %>
+		<p class="error-message">
+			<%= errorMessage %>
+		</p>
+	<% } %>
+
 
 <form action="/login" method="POST" class="form-auth">
 
 	<div class="field">
 		<p class="control has-icons-left has-icons-right">
-    <input class="input" name="email" type="email" placeholder="Email">
-    <span class="icon is-small is-left">
-      <i class="fa fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fa fa-check"></i>
-    </span>
-  </p>
+		<input class="input" name="email" type="email" placeholder="Email">
+		<span class="icon is-small is-left">
+			<i class="fa fa-envelope"></i>
+		</span>
+		<span class="icon is-small is-right">
+			<i class="fa fa-check"></i>
+		</span>
+	</p>
 </div>
 <div class="field">
 <p class="control has-icons-left">
@@ -24,18 +31,13 @@
 </p>
 </div>
 
-	<!--  to view the error message -->
-	 <% if (errorMessage) { %>
-    <p class="error-message"><%= errorMessage %>
-		</p>
-  <% } %>
 
 	<div class="field">
-  <p class="control">
-    <button class="button is-success">
-      Login
-    </button>
-  </p>
+	<p class="control">
+		<button class="button is-success">
+			Login
+		</button>
+	</p>
 </div>
 	<p class="account-message">
 		Don't have an account? <a href="/signup">Sign up</a>

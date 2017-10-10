@@ -160,9 +160,9 @@ footer p {
 }
 
 .error-message {
-  background: #F02B63;
+  color: #F02B63;
   box-sizing: border-box;
-  color: #fff;
+  
   margin: 20px auto;
   padding: 20px;
 
