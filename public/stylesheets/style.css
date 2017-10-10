@@ -13,20 +13,43 @@ a {
     color: white;
     font-size: 20px;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 3px;
     border: none;
+    text-align: center;
+
 }
 
 .filter {
-  border-radius: 5px;
+  border-radius: 1px;
     padding: 15px;
-    width: 150px;
+    width: 250px;
     border: 1px grey solid;
+    border: none;
+
+}
+input::placeholder {
+color: white;
+font-size: 13px;
 }
 .typecss{
   padding: 30px;
     height: 45px;
-    width: 160px;
+    width: 250px;
+    background-color: #39B2AB;
+    border: none;
+    color: white;
+    font-size: 13px;
+    border-radius: 1px;
+}
+
+#searchname {
+  background-color: #65A188;
+}
+#searchcountry {
+  background-color: #505EC6;
+}
+#searchregion {
+  background-color: #FFAD43;
 }
 
 .title{
@@ -44,22 +67,17 @@ a {
     justify-content: center;
 }
 
+
 #map {
+  margin-top: 15px;
   height: 550px;
   width: 100%;
   background-color: grey;
       }
-button .contribute{
-  display: flex;
-  justify-content: center;
-}
-
-
-/*signup login error massage style*/
-.form-auth {
-  margin: 30px auto;
-  width: 380px;
-}
+      footer p {
+        text-align: center;
+        font-weight: bold;
+      }
 
 .form-auth label {
   color: #666;
