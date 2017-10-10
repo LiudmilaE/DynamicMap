@@ -6,7 +6,12 @@ $(document).ready(function(){
 
 const map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
-    center: afri
+    center: afri,
+    mapTypeId: 'roadmap'
   });
 
+  var marker = new google.maps.Marker({
+           position: afri,
+           map: map
+         });
 });
