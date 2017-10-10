@@ -8,19 +8,19 @@
 	</head>
 
 	<body>
+		<header> 
 		<nav class="navbar" role="navigation" aria-label="main navigation">
 			<div class="navbar-brand">
 				<a class="navbar-item" href="/">
 					<h1> <a href="/"> <%= title %> </a> </h1>
 				</a>
-
 				<button class="button navbar-burger">
 					<span></span>
 					<span></span>
 					<span></span>
 				</button>
-
 			</div>
+
 			<div class="navbar-menu">
 				<% if (!user) { %>
 				<div class="navbar-end">
@@ -38,9 +38,11 @@
 					</div>
 					<% } %>
 				</div>
-
 			</div>
+
+			
 		</nav>
+		</header>
 
 		<div class="container">
 
@@ -50,5 +52,7 @@
 		<footer class="footer" id="mainFooter">
 			<p> &copy; Elodie Wanang &amp; Liudmyla Iefremova </p>
 		</footer>
+
+		<script type="text/javascript" src="../javascripts/navbar.js" ></script>
 	</body>
 </html>
