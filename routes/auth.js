@@ -7,28 +7,40 @@ const { ensureLoggedIn, ensureLoggedOut } = require('../middlewares/auth');
 
 //signup 
 router.get('/signup', ensureLoggedOut, (req, res, next) => {
-  res.render('auth/signup', {
-    errorMessage: req.flash('error'),
-  });
+	res.render('auth/signup', {
+		errorMessage: req.flash('error'),
+	});
 });
 
 //login
 router.get('/login', ensureLoggedOut, (req, res, next) => {
-	res.render('auth/login');
+	res.render('auth/login', {
+		errorMessage: req.flash('error'),
+	});
 });
 
 //logout
 router.get('/logout', ensureLoggedIn, (req, res, next) => {
-  req.logout();
-  res.redirect('/login');
+	req.logout();
+	res.redirect('/login');
 });
 
 //signup
 router.post(
-  '/signup',
-  passport.authenticate('local-signup', {
-    successRedirect: '/login',
-    failureRedirect: '/signup',
+	'/signup',
+	passport.authenticate('local-signup', {
+		successRedirect: '/login',
+		failureRedirect: '/signup',
+		failureFlash: true,
+	})
+);
+
+//login
+router.post(
+  '/login',
+  passport.authenticate('local-login', {
+    successRedirect: '/',
+    failureRedirect: '/login',
     failureFlash: true,
   })
 );

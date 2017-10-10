@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt         = require("bcryptjs");
+const bcrypt         = require("bcrypt");
 const bcryptSalt     = 10;
 const User = require('../models/user');
 
@@ -12,7 +12,7 @@ const admin1 = new User({
   username: 'Elodie',
   password: encryptedPass1,
   email: 'elodie.wanang@gmail.com', 
-  status: 'enterpreneur';
+  status: 'enterpreneur',
   isAdmin: true,
 });
 
@@ -20,7 +20,7 @@ const admin2 = new User({
   username: 'Liudmila',
   password: encryptedPass2,
   email: 'liudmyla.iefremova@gmail.com', 
-  status: 'enterpreneur';
+  status: 'enterpreneur',
   isAdmin: true,
 });
 

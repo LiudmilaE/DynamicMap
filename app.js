@@ -15,7 +15,7 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 
 mongoose.connect('mongodb://localhost/dynamic-map', {
-  useMongoClient: true,
+	useMongoClient: true,
 });
 
 const app = express();
@@ -34,68 +34,85 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
-  session({
-    secret: 'dynamic-map',
-    resave: false,
-    saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  })
+	session({
+		secret: 'dynamic-map',
+		resave: false,
+		saveUninitialized: true,
+		store: new MongoStore({ mongooseConnection: mongoose.connection }),
+	})
 );
 app.use(flash());
 
 passport.serializeUser((user, cb) => {
-  cb(null, user.id);
+	cb(null, user.id);
 });
 
 passport.deserializeUser((id, cb) => {
-  User.findById(id, (err, user) => {
-    if (err) {
-      return cb(err);
-    }
-    cb(null, user);
-  });
+	User.findById(id, (err, user) => {
+		if (err) {
+			return cb(err);
+		}
+		cb(null, user);
+	});
 });
 
 // Signing Up LocalStrategy TODO
 passport.use(
-  'local-signup',
-  new LocalStrategy(
-    {
-      passReqToCallback: true,
-      usernameField: 'email',
-    },
-    (req, email, password, next) => {
-      // To avoid race conditions
-      process.nextTick(() => {
-        // Destructure the body
-        const { username } = req.body;
-        const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
-        const user = new User({
-          username,
-          email,
-          password: hashPass,
-          status,
-          //isAdmin,//??? how to add
-        });
+	'local-signup',
+	new LocalStrategy(
+		{
+			passReqToCallback: true,
+			usernameField: 'email',
+		},
+		(req, email, password, next) => {
+			// To avoid race conditions
+			process.nextTick(() => {
+				// Destructure the body
+				const { username } = req.body;
+				const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+				const user = new User({
+					username,
+					email,
+					password: hashPass,
+					status,
+					//isAdmin,//??? how to add
+				});
 
-        user.save(err => {
-          if (err) {
-            // duplicated email
-            if (err.code === 11000) {
-              return next(null, false, {
-                message: `email ${email} is already used`,
-              });
-            }
-          }
-          next(err, user);
-        });
-      });
-    }
-  )
+				user.save(err => {
+					if (err) {
+						// duplicated email
+						if (err.code === 11000) {
+							return next(null, false, {
+								message: `email ${email} is already used`,
+							});
+						}
+					}
+					next(err, user);
+				});
+			});
+		}
+	)
 );
 
 //login strategy TODO
+passport.use(
+	'local-login',
+	new LocalStrategy(
+		{
+			usernameField: 'email',
+		},
+		(email, password, next) => {
+			User.findOne({ email }, (err, user) => {
+				if (err) return next(err);
+				if (!user || !bcrypt.compareSync(password, user.password)) {
+					return next(null, false, { message: 'Email and password do not match' });
+				}
 
+				return next(null, user);
+			});
+		}
+	)
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -106,10 +123,10 @@ const users = require('./routes/users');
 const authController = require('./routes/auth');
 
 
-// app.use((req, res, next) => {
-//   res.locals.user = req.user;
-//   next();
-// });
+app.use((req, res, next) => {
+	res.locals.user = req.user;
+	next();
+});
 
 app.use('/', index);
 app.use('/users', users);
@@ -117,20 +134,20 @@ app.use('/', authController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err);
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+	// set locals, only providing error in development
+	res.locals.message = err.message;
+	res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+	// render the error page
+	res.status(err.status || 500);
+	res.render('error');
 });
 
 module.exports = app;
