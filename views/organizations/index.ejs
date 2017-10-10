@@ -10,9 +10,9 @@
       <%=organization.status%>
       <%=organization.ownerId%>
       <form class="" action="/organizations/<%=organization.id%>/delete" method="POST">
-      <button type="submit" name="button">Delete Organization</button>
+      <input type="submit"class="button" name="button" value="Delete Organization">
       </form>
     </li>
 <%  })%>
 </ul>
-<a href="/celebrities/new">Add new organization</a>
+<a class= "button is-success is-normal" href="/celebrities/new">Add new organization</a>
