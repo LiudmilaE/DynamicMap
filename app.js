@@ -68,14 +68,14 @@ passport.use(
       // To avoid race conditions
       process.nextTick(() => {
         // Destructure the body
-        const { name } = req.body;
+        const { username } = req.body;
         const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
         const user = new User({
-          name,
+          username,
           email,
           password: hashPass,
           status,
-          isAdmin,//??? how to add
+          //isAdmin,//??? how to add
         });
 
         user.save(err => {
