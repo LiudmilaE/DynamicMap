@@ -12,7 +12,7 @@ router.get('/new', ensureLoggedIn, (req, res, next) => {
 });
 
 router.post('/new', ensureLoggedIn, (req, res, next) => {
-  const pickup = new Organization({
+  const organization = new Organization({
   	name: req.body.name,
 	description: req.body.description,
 	email: req.body.email,
