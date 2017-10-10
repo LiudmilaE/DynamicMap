@@ -1,0 +1,18 @@
+<h2>It's time to work! </h2>
+<h3>Take a look at our contributors'requests </h2>
+<ul>
+  <% organizations.forEach((organization) => {%>
+    <li><a href="/organizations/<%=organization.id%>"><%=organization.name%></a>
+      <%=organization.description%>
+      <%=organization.contacts%>
+      <%=organization.address%>
+      <%=organization.category%>
+      <%=organization.status%>
+      <%=organization.ownerId%>
+      <form class="" action="/organizations/<%=organization.id%>/delete" method="POST">
+      <button type="submit" name="button">Delete Organization</button>
+      </form>
+    </li>
+<%  })%>
+</ul>
+<a href="/celebrities/new">Add new organization</a>

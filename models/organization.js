@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const CATEGORIES = [ 'startup', 'incubator' ];
 const STATUSES_ORG = [ 'pending', 'accepted', 'rejected'];
 
-const userSchema = new Schema({
+const organizationSchema = new Schema({
 	name: {
 		type: String,
 		required: true,
@@ -21,12 +21,12 @@ const userSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	category: { 
+	category: {
 		type: String,
 		enum: CATEGORIES,
 		default: 'startup',
 	},
-	status: { 
+	status: {
 		type: String,
 		enum: STATUSES_ORG,
 		default: 'pending',
@@ -38,4 +38,4 @@ const userSchema = new Schema({
 		},
 });
 
-module.exports = mongoose.model('Organization', userSchema);
+module.exports = mongoose.model('Organization', organizationSchema);
