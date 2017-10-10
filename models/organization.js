@@ -13,7 +13,11 @@ const organizationSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	contacts: {
+	email: {
+		type: String,
+		required: true,
+	},
+	phone: {
 		type: String,
 		required: true,
 	},

@@ -1,0 +1,33 @@
+<h2>Add your organization to the map</h2>
+<p>Your organization will appear on the map after approval from administrator</p>
+
+<!--  to view the error message -->
+   <% if (errorMessage) { %>
+    <p class="error-message">
+      <%= errorMessage %>
+    </p>
+  <% } %>
+
+<form action="/new" method="POST" class="form-auth">
+	<label>Name
+		<input type="text" name="name" placeholder="Your organization name">
+	</label>
+	<br><br>
+	<label>Description
+		<input type="text-area" name="description" placeholder="Organization's description"></label>
+	<br><br>
+	<label>Organization's contacts:
+		<input type="email" name="email" placeholder="email@email"></label>
+	<br><br>
+		<input type="tel" name="phone" placeholder="Phone number"></label>
+	<br><br>
+	<label>Category
+		<select name="category">
+			<option selected value="startup">Startup</option>
+			<option value="incubator">Incubator</option>
+		</select></label>
+	<br><br>
+
+	<button>Send information</button>
+
+</form>
