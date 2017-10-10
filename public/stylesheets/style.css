@@ -1,13 +1,39 @@
-body {
-  padding: 50px;
+/*color:
+yellow :#e5e358;
+red: #ce1d53;
+brown : #795d3e;
+bleu: #634afb;
+turquoise: #34C6C9;*/
+
+
+
+
+
+title{
+  color: white;
+  }body {
+  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
 }
 
 a {
   color: #00B7FF;
 }
+.container {
+  margin-left: 25%;
+}
+.sidebar{
+  position: fixed;
+  flex-direction: column;
+  height: 100%;
+  width: 25%;
+  background-color: #34C6C9;
+  z-index: 28;
+  margin-top : 0px;
 
 
+}
 .contribute {
   background-color: #B9085C;
     color: white;
@@ -27,6 +53,7 @@ a {
     border: none;
 
 }
+
 input::placeholder {
 color: white;
 font-size: 13px;
@@ -39,7 +66,7 @@ font-size: 13px;
     border: none;
     color: white;
     font-size: 13px;
-    border-radius: 1px;
+    border-radius: 0px;
 }
 
 #searchname {
@@ -64,17 +91,17 @@ font-size: 13px;
 }
 .searchbar {
   display: flex;
-    justify-content: center;
+  justify-content: center;
 }
 
 
 #map {
   margin-top: 15px;
-  height: 550px;
+  height: 700px;
   width: 100%;
   background-color: grey;
       }
-      footer p {
+footer p {
         text-align: center;
         font-weight: bold;
       }
@@ -94,8 +121,9 @@ font-size: 13px;
   font-size: 14px;
   outline: 0;
   padding: 4px;
-  width: 100%;
+
 }
+
 
 .form-auth button {
   background: #43a3e6;
@@ -109,7 +137,7 @@ font-size: 13px;
   text-decoration: none;
   text-transform: uppercase;
   transition: .3s ease background;
-  width: 100%;
+
 }
 
 .form-auth button:hover {
@@ -124,5 +152,5 @@ font-size: 13px;
   color: #fff;
   margin: 20px auto;
   padding: 20px;
-  width: 100%;
+
 }
