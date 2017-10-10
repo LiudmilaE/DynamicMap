@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const STATUSES = [ 'enterpreneur', 'incubatorMember' ];
+const STATUSES = [ 'entrepreneur', 'incubatorMember' ];
 
 const userSchema = new Schema({
 	username: String,
@@ -17,7 +17,7 @@ const userSchema = new Schema({
 	status: { 
 		type: String,
 		enum: STATUSES,
-		default: 'enterpreneur',
+		default: 'entrepreneur',
 	},
 	isAdmin: { 
 		type: Boolean, 

@@ -12,7 +12,7 @@ const admin1 = new User({
   username: 'Elodie',
   password: encryptedPass1,
   email: 'elodie.wanang@gmail.com', 
-  status: 'enterpreneur',
+  status: 'entrepreneur',
   isAdmin: true,
 });
 
@@ -20,7 +20,7 @@ const admin2 = new User({
   username: 'Liudmila',
   password: encryptedPass2,
   email: 'liudmyla.iefremova@gmail.com', 
-  status: 'enterpreneur',
+  status: 'entrepreneur',
   isAdmin: true,
 });
 

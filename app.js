@@ -68,7 +68,7 @@ passport.use(
 			// To avoid race conditions
 			process.nextTick(() => {
 				// Destructure the body
-				const { username } = req.body;
+				const { username, status } = req.body;
 				const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
 				const user = new User({
 					username,
