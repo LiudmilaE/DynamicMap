@@ -18,29 +18,10 @@ const organizationSchema = new Schema({
 		phone: { type: String, required: true, },
 	},
 	address: {
-<<<<<<< HEAD
-		zip: {
-			type: String,
-			required: true,
-		},
-		country: {
-			type: String,
-			required: true,
-		},
-		city: {
-			type: String,
-			required: true,
-		},
-		street: {
-			type: String,
-			required: true,
-		},
-=======
 		zip: { type: String, required: true, },
 		country: { type: String, required: true, },
 		city: { type: String, required: true, },
 		street: { type: String, required: true, },
->>>>>>> 7d376d1c69ed2582b64775aef5937a71d630cd7d
 	},
 	category: {
 		type: String,
