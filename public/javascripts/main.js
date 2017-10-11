@@ -34,4 +34,17 @@ const map = new google.maps.Map(document.getElementById('map'), {
 
 
 
+// Add organizations markers to map
+  let markers = [];
+  allOrganizations.forEach(function(organization){
+    let title = organization.name
+    let position = {
+      lat: organization.location.coordinates[1],
+      lng: organization.location.coordinates[0]
+    };
+    var pin = new google.maps.Marker({ position, map, title  });
+    markers.push(pin)
+  });
+
+
 });
