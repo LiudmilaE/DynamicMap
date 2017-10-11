@@ -5,6 +5,15 @@ const Organization = require('../models/organization');
 
 const { ensureLoggedIn } = require('../middlewares/auth');
 
+
+router.get('/', (req,res,next) => {
+   Organization.find({} , (err, organizations) => {
+   if (err) {return next(err)}
+   res.render('organizations/index', {
+     organizations: organizations
+   });
+ });
+});
 router.get('/new', ensureLoggedIn, (req, res, next) => {
 	res.render('organizations/new', {
 		errorMessage: req.flash('error'),

@@ -26,6 +26,10 @@ a {
   margin-left: 25%;
   height:700px;
 }
+
+/*********navbar/sidebar*********/
+
+
 .sidebar{
   position: fixed;
   flex-direction: column;
@@ -37,6 +41,54 @@ a {
 
 
 }
+.navbar-brand h1 {
+  font-size: 25px;
+
+
+}
+
+
+/********searchbar********/
+
+.searchbar {
+  display: flex;
+  justify-content: center;
+}
+#searchname {
+  background-color: #65A188;
+}
+#searchcountry {
+  background-color: #505EC6;
+}
+#searchregion {
+  background-color: #FFAD43;
+}
+.filter {
+  border-radius: 1px;
+    padding: 15px;
+    width: 250px;
+    border: 1px grey solid;
+    border: none;
+
+}
+.typecss{
+  padding: 30px;
+    height: 45px;
+    width: 250px;
+    background-color: #39B2AB;
+    border: none;
+    color: white;
+    font-size: 13px;
+    border-radius: 0px;
+}
+input::placeholder {
+color: white;
+font-size: 13px;
+}
+
+
+
+
 .contribute {
   background-color: #B9085C;
   color: white;
@@ -51,40 +103,6 @@ a {
   color: white;
 }
 
-.filter {
-  border-radius: 1px;
-    padding: 15px;
-    width: 250px;
-    border: 1px grey solid;
-    border: none;
-
-}
-
-input::placeholder {
-color: white;
-font-size: 13px;
-}
-.typecss{
-  padding: 30px;
-    height: 45px;
-    width: 250px;
-    background-color: #39B2AB;
-    border: none;
-    color: white;
-    font-size: 13px;
-    border-radius: 0px;
-}
-
-#searchname {
-  background-color: #65A188;
-}
-#searchcountry {
-  background-color: #505EC6;
-}
-#searchregion {
-  background-color: #FFAD43;
-}
-
 .maintitle{
   text-align: center;
   font-size: 30px;
@@ -97,13 +115,10 @@ font-size: 13px;
   font-size: 30px;
 
 }
-.searchbar {
-  display: flex;
-  justify-content: center;
-}
 
-.navbar-brand h1 {
-  font-size: 25px;
+.footer p {
+  text-align: center;
+  margin: 100px auto 5px;
 }
 /*Map Style*/
 #map {
@@ -132,11 +147,36 @@ font-size: 13px;
   background-color: white;
 }
 
-.footer p {
-  text-align: center;
-  margin: 100px auto 5px;
+/*******Requests*******/
+
+.titlerequest h2 {
+font-size: 40px;
+text-align: center;
+margin: 30px;
+}
+.titlerequest h3 {
+font-size: 30px;
+text-align: center;
+margin: 10px;
 }
 
+.requestdetails {
+  border: 3px solid grey;
+    border-radius: 30px;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.buttonrequest{
+  display: flex;
+  flex-direction: row;
+}
+
+.requestdetails label {
+  font-weight: bold;
+}
+
+/***************form ****************/
 
 .form-auth label {
   /*color: #666;*/
@@ -182,3 +222,9 @@ font-size: 13px;
   margin: 20px auto;
   padding: 20px;
 }
+
+
+
+Bulma
+
+@import "../sass/utilities/initial-variables"

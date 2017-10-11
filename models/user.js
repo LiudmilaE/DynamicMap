@@ -14,14 +14,14 @@ const userSchema = new Schema({
 		required: true,
 		unique: true,
 	},
-	status: { 
+	status: {
 		type: String,
 		enum: STATUSES,
 		default: 'entrepreneur',
 	},
-	isAdmin: { 
-		type: Boolean, 
-		default: false 
+	isAdmin: {
+		type: Boolean,
+		default: false
 	},
 });
 

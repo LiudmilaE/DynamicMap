@@ -21,7 +21,8 @@ const organizationSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	address: {
+	address:
+	{
 		type: String,
 		required: true,
 	},
