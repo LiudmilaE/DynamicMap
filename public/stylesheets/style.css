@@ -54,6 +54,11 @@ a {
   display: flex;
   justify-content: center;
 }
+
+.searchbar a {
+  margin-left: 10px;
+  height: 50px;
+}
 #searchname {
   background-color: #65A188;
 }
