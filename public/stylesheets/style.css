@@ -11,12 +11,11 @@ title{
   }
 
   body {
-  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: white;
   height: 100%;
-        margin: 0;
-        padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -29,7 +28,6 @@ a {
 
 /*********navbar/sidebar*********/
 
-
 .sidebar{
   position: fixed;
   flex-direction: column;
@@ -38,13 +36,10 @@ a {
   background-color: #34C6C9;
   z-index: 28;
   margin-top : 0px;
-
-
 }
+
 .navbar-brand h1 {
   font-size: 25px;
-
-
 }
 
 
@@ -86,13 +81,15 @@ a {
     font-size: 13px;
     border-radius: 0px;
 }
-input::placeholder {
+
+#searchname::placeholder,
+#searchcountry::placeholder,
+#searchregion::placeholder,
+#searchregion::placeholder
+ {
 color: white;
 font-size: 13px;
 }
-
-
-
 
 .contribute {
   background-color: #B9085C;
@@ -132,20 +129,22 @@ font-size: 13px;
   width: 100%;
   background-color: grey;
 }
-#legend {
-       font-family: Arial, sans-serif;
-       background: #fff;
-       padding: 10px;
-       margin: 10px;
-       border: 3px solid #000;
-     }
 
-     #legend h3 {
-        margin-top: 0;
-      }
-      #legend img {
-        vertical-align: middle;
-      }
+#legend {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid #000;
+}
+
+#legend h3 {
+  margin-top: 0;
+}
+
+#legend img {
+  vertical-align: middle;
+}
 
 #mainFooter {
   padding-bottom: 20px;
@@ -159,6 +158,7 @@ font-size: 40px;
 text-align: center;
 margin: 30px;
 }
+
 .titlerequest h3 {
 font-size: 30px;
 text-align: center;
@@ -182,44 +182,6 @@ margin: 10px;
 }
 
 /***************form ****************/
-
-.form-auth label {
-  /*color: #666;*/
-  display: inline-block;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.form-auth input,
-.form-auth button,
-.form-auth select {
-  box-sizing: border-box;
-  font-size: 14px;
-  outline: 0;
-  padding: 4px;
-  margin: 0 auto;
-}
-
-
-.form-auth button {
-  background: #43a3e6;
-  border: 1px solid #43a3e6;
-  border-radius: 4px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  padding: 8px 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: .3s ease background;
-}
-
-.form-auth button:hover {
-  background: #fff;
-  color: #43a3e6;
-  transition: .3s ease background;
-}
 
 .error-message {
   color: #ce1d53;
