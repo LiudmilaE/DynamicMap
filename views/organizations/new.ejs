@@ -1,17 +1,15 @@
-<h2>Add your organization to the map</h2>
-<p>Your organization will appear on the map after approval from administrator</p>
-
+<h2 class="title">Add your organization to the map</h2>
+<h4 class="subtitle">Your organization will appear on the map after approval from administrator</h4>
 <!--  to view the error message -->
-   <% if (errorMessage) { %>
-    <p class="error-message">
-      <%= errorMessage %>
-    </p>
-  <% } %>
-
+	 <% if (errorMessage) { %>
+		<p class="error-message">
+			<%= errorMessage %>
+		</p>
+	<% } %>
 <form action="/organizations/new" method="POST" class="form-auth">
 
 	<div class="field">
-		<label class="label">Name</label>
+		<label class="label">Organization name</label>
 		<div class="control">
 			<input type="text" name="name" placeholder="Your organization name" class="input">
 		</div>
@@ -27,8 +25,11 @@
 
 	<div class="field">
 		<lable class="label">Email</label>
-			<div class="control">
+			<div class="control has-icons-left">
 				<input type="email" name="email" placeholder="email@email" class="input">
+				<span class="icon is-small is-left">
+					<i class="fa fa-envelope"></i>
+				</span>
 			</div>
 		
 	</div>
@@ -40,6 +41,8 @@
 			</div>
 	</div>
 
+	<div class="field is-horizontal">
+		<div class="field-body">
 	<div class="field">
 		<lable class="label">Zip</label>
 			<div class="control">
@@ -48,9 +51,12 @@
 	</div>
 	<div class="field">
 		<lable class="label">Country</label>
-			<div class="control">
-				<input type="text" name="country" placeholder="Country" class="input">
-			</div>
+		<p class="control has-icons-left">
+			<input type="text" name="country" placeholder="Country" class="input">
+		<span class="icon is-small is-left">
+			 <i class="fa fa-globe"></i>
+		</span>
+		</p>
 	</div>
 	<div class="field">
 		<lable class="label">City</label>
@@ -63,7 +69,9 @@
 			<div class="control">
 				<input type="text" name="street" placeholder="Street" class="input">
 			</div>
+		</div>
 	</div>
+</div>
 
 	<div class="field">
 		<label class="label">Category</label>
@@ -77,11 +85,22 @@
 		</div>
 	</div>
 
-
-	<div class="control">
-		<input type="text" name="latitude" placeholder="Latitude" class="input">
-	  <input type="text" name="longitude" placeholder="Longitude" class="input">
-  </div>
+	<div class="field is-horizontal">
+		<div class="field-body">
+			<div class="field">
+				<label class="label">Latitude</label>
+				<div class="control">
+					<input type="text" name="latitude" class="input">
+				</div>
+			</div>
+			<div class="field">
+				<label class="label">Longitude</label>
+				<div class="control">
+					<input type="text" name="longitude" class="input">
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<div class="field">
 	<div class="control">
