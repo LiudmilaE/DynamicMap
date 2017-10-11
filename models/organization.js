@@ -38,6 +38,9 @@ const organizationSchema = new Schema({
 			required: true,
 			ref: 'User',
 		},
+	location: { type: { type: String }, coordinates: [Number] }
 });
+
+organizationSchema.index({ location: '2dsphere' });
 
 module.exports = mongoose.model('Organization', organizationSchema);
