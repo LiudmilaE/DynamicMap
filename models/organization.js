@@ -13,18 +13,40 @@ const organizationSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	email: {
-		type: String,
-		required: true,
+	contacts: {
+		email: {
+			type: String,
+			required: true,
+		},
+		phone: {
+			type: String,
+			required: true,
+		},
 	},
-	phone: {
-		type: String,
-		required: true,
-	},
+<<<<<<< HEAD
 	address:
 	{
 		type: String,
 		required: true,
+=======
+	address: {
+		zip: {
+			type: String,
+			required: true,
+		},
+		country: {
+			type: String,
+			required: true,
+		},
+		city: {
+			type: String,
+			required: true,
+		},
+		street: {
+			type: String,
+			required: true,
+		},
+>>>>>>> 0ffcb71f19081214fa270c72e9f8ae0a35f95944
 	},
 	category: {
 		type: String,
