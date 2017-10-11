@@ -21,6 +21,12 @@ router.get('/new', ensureLoggedIn, (req, res, next) => {
 });
 
 router.post('/new', ensureLoggedIn, (req, res, next) => {
+	 // Get Params from POST
+  let location = {
+    type: 'Point',
+    coordinates: [req.body.longitude, req.body.latitude]
+  };
+
   const organization = new Organization({
   	name: req.body.name,
 	description: req.body.description,
@@ -35,7 +41,8 @@ router.post('/new', ensureLoggedIn, (req, res, next) => {
 		street: req.body.street,
 	},
 	category: req.body.category,
-    ownerId: req.user._id,
+  ownerId: req.user._id,
+  location: location,
   });
 
   organization.save(err => {
