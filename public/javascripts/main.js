@@ -4,8 +4,8 @@ $(document).ready(function(){
     lng: 4.4218547,
   };
   const ng = {
-    lat: -0.3674603,
-    lng: 8.9233587,
+    lat: 9.0546462,
+    lng: 7.2539279,
   };
 
 const map = new google.maps.Map(document.getElementById('map'), {
