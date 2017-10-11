@@ -15,9 +15,16 @@ router.post('/new', ensureLoggedIn, (req, res, next) => {
   const organization = new Organization({
   	name: req.body.name,
 	description: req.body.description,
-	email: req.body.email,
-	phone: req.body.phone,
-	address: req.body.address,
+	contacts: {
+		email: req.body.email,
+		phone: req.body.phone,
+	},
+	address: {
+		zip: req.body.zip,
+		country: req.body.country,
+		city: req.body.city,
+		street: req.body.street,
+	},
 	category: req.body.category,
     ownerId: req.user._id,
   });

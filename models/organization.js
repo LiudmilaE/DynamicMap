@@ -13,17 +13,33 @@ const organizationSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	email: {
-		type: String,
-		required: true,
-	},
-	phone: {
-		type: String,
-		required: true,
+	contacts: {
+		email: {
+			type: String,
+			required: true,
+		},
+		phone: {
+			type: String,
+			required: true,
+		},
 	},
 	address: {
-		type: String,
-		required: true,
+		zip: {
+			type: String,
+			required: true,
+		},
+		country: {
+			type: String,
+			required: true,
+		},
+		city: {
+			type: String,
+			required: true,
+		},
+		street: {
+			type: String,
+			required: true,
+		},
 	},
 	category: {
 		type: String,
