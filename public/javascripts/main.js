@@ -4,8 +4,8 @@ $(document).ready(function(){
     lng: 4.4218547,
   };
   const ng = {
-    lat: 8.9233587,
-    lng: -0.3674603,
+    lat: -0.3674603,
+    lng: 8.9233587,
   };
 
 const map = new google.maps.Map(document.getElementById('map'), {
@@ -24,11 +24,10 @@ const map = new google.maps.Map(document.getElementById('map'), {
            // from the array of alphabetical characters.
            var marker = new google.maps.Marker({
              position: location,
-             label: labels[labelIndex++ % labels.length],
              map: map
            });
          }
-         $('#Nigeriabutton').event.addListener(map, 'click', function(event) {
+         $('#Nigeriabutton').on('click', function() {
              addMarker(ng, map);
            });
 
