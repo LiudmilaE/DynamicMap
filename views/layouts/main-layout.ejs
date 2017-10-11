@@ -10,7 +10,7 @@
 
 	<body>
 		<header>
-		<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+		<nav class="navbar " role="navigation" aria-label="main navigation">
 			<div class="navbar-brand">
 				<a class="navbar-item" href="/">
 					<h1> <a href="/"> <%= title %> </a> </h1>
@@ -34,11 +34,15 @@
 					</div>
 					<% } %>
 					<% if (user) { %>
-					<div class="navbar-item">
+
+						<div class="navbar-end">
+							<div class="navbar-item">
 						<a href="/logout" class="navbar-item">Logout</a>
-					</div>
-					<div class="navbar-item">
+          </div>
+
+								<div class="navbar-item">
 						<a href="/organizations/new" class="navbar-item">Add new organization</a>
+         </div>
 					</div>
 					<% } %>
 				</div>

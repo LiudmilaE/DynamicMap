@@ -23,12 +23,6 @@ const organizationSchema = new Schema({
 			required: true,
 		},
 	},
-<<<<<<< HEAD
-	address:
-	{
-		type: String,
-		required: true,
-=======
 	address: {
 		zip: {
 			type: String,
@@ -46,7 +40,6 @@ const organizationSchema = new Schema({
 			type: String,
 			required: true,
 		},
->>>>>>> 0ffcb71f19081214fa270c72e9f8ae0a35f95944
 	},
 	category: {
 		type: String,
