@@ -36,15 +36,50 @@ const map = new google.maps.Map(document.getElementById('map'), {
 
 // Add organizations markers to map
   let markers = [];
-  allOrganizations.forEach(function(organization){
-    let title = organization.name
-    let position = {
-      lat: organization.location.coordinates[1],
-      lng: organization.location.coordinates[0]
-    };
-    var pin = new google.maps.Marker({ position, map, title  });
-    markers.push(pin)
-  });
+
+  function putMarkers(arr){
+    arr.forEach(function(organization){
+      let title = organization.name
+      let position = {
+        lat: organization.location.coordinates[1],
+        lng: organization.location.coordinates[0],
+      };
+      var pin = new google.maps.Marker({ position, map, title });
+      markers.push(pin)
+    });
+  }
+  putMarkers(allOrganizations);
+
 
 
 });
+
+function creatList (arr, cond) {
+  return arr.filter(function(obj){
+    return (obj.category) === cond;
+  });
+}
+
+$('select.#filterone').on('click', function () {
+  let incubators = creatList(allOrganizations, "incubator");
+  let startups =creatList(allOrganizations, "startup");;
+  var hideOrShowMarkers = function(toChange, show){
+    $.each(toChange, function(i){
+      toChange[i].setVisible(show)
+    })
+  }
+
+  marker.setMap(null);
+  let type = $(this).val();
+  switch(type) {
+      case 'incubator':
+        putMarkers(incubators)
+        break;
+      case 'startup':
+        putMarkers(startups)
+        break;
+      case '':
+
+        break;
+    }
+})
