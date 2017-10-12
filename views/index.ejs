@@ -4,26 +4,30 @@
 	</header>
 
 	<nav class="searchbar">
-
-		<select id="filter1" class="typecss" name="searchtype">
-			<option value="incubator">incubator</option>
-			<option value="start-up">startup</option>
-		</select>
-		<input type="text" class="filter" id="searchname" placeholder="Enter the name of the organization you're looking for">
-		<input type="text" class="filter" id="searchcountry" placeholder="Ghana, Senegal...">
-
-		<input type="text" class="filter" id="searchregion" placeholder="West, East..">
-	<!--<a id="Nigeriabutton" class="button is-success is-outlined">Nigeria</a>-->
-
+		<div class="control">
+			<div class="select is-medium">
+				<select id="filter1" class="typecss" name="searchtype">
+					<option value="incubator">incubator</option>
+					<option value="start-up">startup</option>
+				</select>
+			</div>
+		</div>
+		<div class="control">
+			<input type="text" class="filter input is-medium" id="searchname" placeholder="Enter texthe name of the organization you're looking for">
+		</div>
+		<div class="control">
+			<input type="text" class="filter input is-medium" id="searchcountry" placeholder="Ghana, Senegal...">
+		</div>
+		<div class="control">
+			<input type="text" class="filter input is-medium" id="searchregion" placeholder="West, East..">
+		</div>
 	</nav>
 
-
-
 	<div id="map"></div>
-	<footer class="contribute">
-		<a href="/login">I want to contribute !</a>
-	</footer>
-</div>
+		<footer class="contribute">
+			<a href="/login">I want to contribute !</a>
+		</footer>
+	</div>
 
 
 <script type="text/javascript">
