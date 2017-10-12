@@ -1,55 +1,56 @@
+<div class="container">
+	<!--  to view the error message -->
+		 <% if (errorMessage) { %>
+			<p class="error-message">
+				<%= errorMessage %>
+			</p>
+		<% } %>
 
-<!--  to view the error message -->
-	 <% if (errorMessage) { %>
-		<p class="error-message">
-			<%= errorMessage %>
-		</p>
-	<% } %>
-
-<form action="/signup" method="POST" class="form-auth">
-	<div class="field">
-		<label class="label">Username</label>
-		<div class="control">
-			<input type="text" name="username" placeholder="Your name" class="input">
-		</div>
-	</div>
-	
-	<label class="label">Password</label>
-	<div class="field">
-		<p class="control has-icons-left">
-			<input class="input" name="password" type="password" placeholder="Password">
-			<span class="icon is-small is-left">
-				<i class="fa fa-lock"></i>
-			</span>
-		</p>
-	</div>
-	
-	<div class="field">
-		<label class="label">Email</label>
-		<p class="control has-icons-left has-icons-right">
-		<input class="input" name="email" type="email" placeholder="Email">
-		<span class="icon is-small is-left">
-			<i class="fa fa-envelope"></i>
-		</span>
-		<span class="icon is-small is-right">
-			<i class="fa fa-check"></i>
-		</span>
-		</p>
-	</div>
-	<div class="field">
-		<label class="label">Status</label>
-		<div class="control">
-			<div class="select">
-				<select name="status">
-					<option selected value="entrepreneur">Entrepreneur</option>
-					<option value="incubatorMember">Incubator's member</option>
-				</select>
+	<form action="/signup" method="POST" class="form-auth">
+		<div class="field">
+			<label class="label">Username</label>
+			<div class="control">
+				<input type="text" name="username" placeholder="Your name" class="input">
 			</div>
 		</div>
-	</div>
-	<div class="field">
-		<div class="control">
-			<button class="button is-primary">Create account</button>
+		
+		<label class="label">Password</label>
+		<div class="field">
+			<p class="control has-icons-left">
+				<input class="input" name="password" type="password" placeholder="Password">
+				<span class="icon is-small is-left">
+					<i class="fa fa-lock"></i>
+				</span>
+			</p>
 		</div>
-	</div>
-</form>
+		
+		<div class="field">
+			<label class="label">Email</label>
+			<p class="control has-icons-left has-icons-right">
+			<input class="input" name="email" type="email" placeholder="Email">
+			<span class="icon is-small is-left">
+				<i class="fa fa-envelope"></i>
+			</span>
+			<span class="icon is-small is-right">
+				<i class="fa fa-check"></i>
+			</span>
+			</p>
+		</div>
+		<div class="field">
+			<label class="label">Status</label>
+			<div class="control">
+				<div class="select">
+					<select name="status">
+						<option selected value="entrepreneur">Entrepreneur</option>
+						<option value="incubatorMember">Incubator's member</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="field">
+			<div class="control">
+				<button class="button is-primary">Create account</button>
+			</div>
+		</div>
+	</form>
+</div>
