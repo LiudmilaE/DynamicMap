@@ -99,9 +99,9 @@ router.post('/:org_id/edit', (req, res, next) => {
 			street: req.body.street,
 		},
 		category: req.body.category,
-		
+		status: "pending",
 		location: location,
-	}, (err, organization) => {
+	}, (err) => {
 	if (err){ return next(err); }
 	return res.redirect('/');
   });
