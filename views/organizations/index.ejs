@@ -20,7 +20,7 @@
 			<li>Category: <%=organization.category%></li>
 			<li>Status of the request: <%=organization.status%></li>
 
-			<% if (user.isAdmin) { %>
+			<% if (user.isAdmin && organization.status === "pending") { %>
 			<form action="organizations/<%=organization.id%>/status" method="post">
         <input type="hidden" value="accepted">
         <button>Accept</button>
