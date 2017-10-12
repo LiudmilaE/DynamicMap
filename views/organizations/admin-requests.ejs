@@ -1,52 +1,43 @@
-<div class="titlerequest">
-	<h2>Organization's requests</h2>
-	<% if (user.isAdmin ) { %>
-	<h3>It's time to work !</h3>
-	<h4>Take a look at our contributors' requests </h4>
-	<% } %>
-</div>
-
-<div class="requestdetails">
-	<ul>
-		<% organizations.forEach((organization) => {%>
-		<% if (user.isAdmin && organization.status === "pending") { %>
-		<ul>
-			<li><a href="/organizations/<%=organization.id%>">
-				Name: <%=organization.name%> </a></li>
-			<li>Description: <%=organization.description%></li>
-			<li>Email: <%=organization.contacts.email%></li>
-			<li>Phone: <%=organization.contacts.phone%></li>
-			<li>Address: <%=organization.address.street%>,
-				<%=organization.address.city%>,
-				<%=organization.address.zip%>,
-				<%=organization.address.country%>
-			</li>
-			<li>Category: <%=organization.category%></li>
-			<li>Status of the request: <%=organization.status%></li>
-
-			
-			<form action="/organizations/<%=organization.id%>" method="POST">
-				<input name="status" type="hidden" value="accepted">
-				<button class="button is-success is-normal buttonrequest">Accept</button>
-			</form>
-			<form action="/organizations/<%=organization.id%>" method="POST">
-				<input name="status" type="hidden" value="rejected">
-				<button class="button is-normal buttonrequest">Reject</button>
-		  </form>
-
-			<!--
-			<li class="buttonrequest">
-				<a class="button is-success is-normal buttonrequest" href="/celebrities/new">Add organization</a>
-					<form class="" action="/organizations/<%=organization.id%>/delete" method="POST">
-						<input type="submit" class="button" name="button" value="Delete organization">
-
-					</form>
-				-->
-			
-			<hr>
-		</ul>
+<div class="container">
+	<div class="titlerequest">
+		<h2>Organization's requests</h2>
+		<% if (user.isAdmin ) { %>
+		<h3>It's time to work !</h3>
+		<h4>Take a look at our contributors' requests </h4>
 		<% } %>
-		<% }) %>
-		
-	</ul>
+	</div>
+
+	<div class="requestdetails">
+		<ul>
+			<% organizations.forEach((organization) => {%>
+			<% if (user.isAdmin && organization.status === "pending") { %>
+			<ul>
+				<li><a href="/organizations/<%=organization.id%>">
+					Name: <%=organization.name%> </a></li>
+				<li>Description: <%=organization.description%></li>
+				<li>Email: <%=organization.contacts.email%></li>
+				<li>Phone: <%=organization.contacts.phone%></li>
+				<li>Address: <%=organization.address.street%>,
+					<%=organization.address.city%>,
+					<%=organization.address.zip%>,
+					<%=organization.address.country%>
+				</li>
+				<li>Category: <%=organization.category%></li>
+				<li>Status of the request: <%=organization.status%></li>
+			</ul>
+			<li>
+			<form action="/organizations/<%=organization.id%>" method="POST">
+					<input name="status" type="hidden" value="accepted">
+					<button class="button is-success is-normal buttonrequest">Accept</button>
+				</form>
+				<form action="/organizations/<%=organization.id%>" method="POST">
+					<input name="status" type="hidden" value="rejected">
+					<button class="button is-normal buttonrequest">Reject</button>
+			  </form>
+			</li>
+			  <hr>
+			<% } %>
+			<% }) %>
+		</ul>
+	</div>
 </div>

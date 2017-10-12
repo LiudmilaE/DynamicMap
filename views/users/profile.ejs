@@ -1,4 +1,5 @@
-<h2> Hello + <%= user.username%> </h2>
+<div class="container">
+	<h2> Hello + <%= user.username%> </h2>
 
 	<% if ( user.isAdmin) { %>
 	<div class="navbar-item">
@@ -7,47 +8,34 @@
 	<% } %>
 
 
-<h3>
-Please find below your organizations :
-</h3>
+	<h3>Please find below your organizations :</h3>
 
-<div class="requestdetails">
-	<ul>
-		<% organizations.forEach((organization) => {%>
+	<div class="requestdetails">
 		<ul>
-			<li><a href="/<%=organization.id%>">
-				Name: <%=organization.name%> </a></li>
-			<li>Description: <%=organization.description%></li>
-			<li>Email: <%=organization.contacts.email%></li>
-			<li>Phone: <%=organization.contacts.phone%></li>
-			<li>Address: <%=organization.address.street%>,
-				<%=organization.address.city%>,
-				<%=organization.address.zip%>,
-				<%=organization.address.country%>
-			</li>
-			<li>Category: <%=organization.category%></li>
-			<li>Status of the request: <%=organization.status%></li>
+			<% organizations.forEach((organization) => {%>
+			<ul>
+				<li><a href="/<%=organization.id%>">
+					Name: <%=organization.name%> </a></li>
+				<li>Description: <%=organization.description%></li>
+				<li>Email: <%=organization.contacts.email%></li>
+				<li>Phone: <%=organization.contacts.phone%></li>
+				<li>Address: <%=organization.address.street%>,
+					<%=organization.address.city%>,
+					<%=organization.address.zip%>,
+					<%=organization.address.country%>
+				</li>
+				<li>Category: <%=organization.category%></li>
+				<li>Status of the request: <%=organization.status%></li>
+			</ul>
 
-
-			<form action="/<%=organization.id%>/edit/" method="GET">
-        <button>Edit</button>
-      </form>
-      <form action="/<%=organization.id%>/delete" method="POST">
-        <button type="submit">Delete</button>
-      </form>
-
-
-			<!--
-			<li class="buttonrequest">
-				<a class="button is-success is-normal buttonrequest" href="/celebrities/new">Add organization</a>
-					<form class="" action="/organizations/<%=organization.id%>/delete" method="POST">
-						<input type="submit" class="button" name="button" value="Delete organization">
-
-					</form>
-				-->
-			</li>
-			<hr>
+				<form action="/<%=organization.id%>/edit/" method="POST">
+	        <button>Edit</button>
+	      </form>
+	      <form action="/<%=organization.id%>/delete" method="POST">
+	        <button type="submit">Delete</button>
+	      </form>
+				<hr>
+			<% }) %>
 		</ul>
-		<% }) %>
-	</ul>
+	</div>
 </div>
