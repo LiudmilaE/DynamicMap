@@ -14,7 +14,7 @@
 		<ul>
 			<% organizations.forEach((organization) => {%>
 			<ul>
-				<li><a href="/<%=organization.id%>">
+				<li><a href="/organizations/<%=organization.id%>">
 					Name: <%=organization.name%> </a></li>
 				<li>Description: <%=organization.description%></li>
 				<li>Email: <%=organization.contacts.email%></li>
@@ -28,10 +28,10 @@
 				<li>Status of the request: <%=organization.status%></li>
 			</ul>
 
-				<form action="/<%=organization.id%>/edit/" method="POST">
+				<form action="/organizations/<%=organization.id%>/edit/" method="POST">
 	        <button>Edit</button>
 	      </form>
-	      <form action="/<%=organization.id%>/delete" method="POST">
+	      <form action="/organizations/<%=organization.id%>/delete" method="POST">
 	        <button type="submit">Delete</button>
 	      </form>
 				<hr>

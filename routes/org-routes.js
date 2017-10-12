@@ -69,7 +69,7 @@ router.post('/:id', ensureLoggedIn, (req,res,next) => {
 		res.redirect("admin-requests");
 	})
 })
-router.get('/edit', ensureLoggedIn, (req, res, next) => {
+router.get('/:id/edit', ensureLoggedIn, (req, res, next) => {
 	res.render('organizations/edit', {
 		errorMessage: req.flash('error'),
 	});
