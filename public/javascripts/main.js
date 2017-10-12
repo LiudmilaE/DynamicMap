@@ -65,8 +65,6 @@ let orgaccepted = creatList(allOrganizations, "accepted");
 let orgpending = creatList(allOrganizations, "pending");
 putMarkers(orgaccepted);
 
-$('#approval').on('click', function() {
-})
 $('#filter1').change( function () {
 
 	let incubators = creatList(allOrganizations, "incubator");
