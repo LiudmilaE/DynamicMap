@@ -66,46 +66,53 @@ router.get('/admin-requests', ensureLoggedIn, (req,res,next) => {
 
 router.post('/:id', ensureLoggedIn, (req,res,next) => {
 	Organization.findByIdAndUpdate(req.params.id, {status: req.body.status},(err,response)  => {
-		res.redirect("admin-requests");
+		res.redirect("organizations/admin-requests"); //????
 	})
-})
-router.get('/:id/edit', ensureLoggedIn, (req, res, next) => {
-	res.render('organizations/edit', {
-		errorMessage: req.flash('error'),
-	});
-});
+}) 
 
-router.get('/:id/edit', (req, res, next) => {
-  const orgaId = req.params.id;
 
-  Organization.findById(organizationId, (err, organization) => {
-    if (err) { return next(err); }
-    res.render('organizations/edit', { organization: organization });
+router.get('/:org_id/edit', ensureLoggedIn, (req, res, next) => {
+
+  Organization.findById(req.params.org_id, (err, organization) => {
+	if (err) { return next(err); }
+	res.render('organizations/edit', { organization });
   });
 });
 
-router.post('/:id', (req, res, next) => {
-  const orgaId = req.params.id;
+router.post('/:org_id', (req, res, next) => {
+  const orgaId = req.params.org_id;
 
   /*
    * Create a new object with all of the information from the request body.
    * This correlates directly with the schema of Product
    */
   const updates = {
-      name: req.body.name,
-      description: req.body.description,
-      email: req.body.email,
-      phone: req.body.phone,
-			address: req.body.address,
-			category:req.category.address,
-			status:req.category.status,
+	  name: req.body.name,
+	  description: req.body.description,
+	  email: req.body.email,
+	  phone: req.body.phone,
+		address: req.body.address,
+		category:req.category.address,
+		status:req.category.status,
   };
 
   Organization.findByIdAndUpdate(orgaId, updates, (err, organization) => {
-    if (err){ return next(err); }
-    return res.redirect('organizations');
+	if (err){ return next(err); }
+	return res.redirect('organizations');
   });
 });
+
+
+router.post('/:org_id/delete', (req, res, next) => {
+		Organization.remove({ _id: req.params.org_id }, function(error, organization) {
+	    if (error) {
+	    	next(error)
+	    } else {
+	    	res.redirect('/')
+	    }
+    });
+	});
+
 
 
 module.exports = router;

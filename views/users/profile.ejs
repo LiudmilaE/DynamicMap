@@ -28,12 +28,12 @@
 				<li>Status of the request: <%=organization.status%></li>
 			</ul>
 
-				<form action="/organizations/<%=organization.id%>/edit/" method="POST">
-	        <button>Edit</button>
-	      </form>
-	      <form action="/organizations/<%=organization.id%>/delete" method="POST">
-	        <button type="submit">Delete</button>
-	      </form>
+				
+		<button><a href="/organizations/<%=organization.id%>/edit">Edit</a></button>
+		  
+		  <form action="/organizations/<%=organization.id%>/delete" method="POST">
+			<button type="submit">Delete</button>
+		  </form>
 				<hr>
 			<% }) %>
 		</ul>
