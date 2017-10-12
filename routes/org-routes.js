@@ -58,14 +58,14 @@ router.get('/admin-requests', ensureLoggedIn, (req,res,next) => {
 	 Organization.find({} , (err, organizations) => {
 	 if (err) {return next(err)}
 	 res.render('organizations/admin-requests', {
-		 organizations: organizations
+		 organizations
 	 });
  });
 });
 
-router.post('/admin-requests/:id', ensureLoggedIn, (req,res,next) => {
+router.post('/:id', ensureLoggedIn, (req,res,next) => {
 	Organization.findByIdAndUpdate(req.params.id, {status: req.body.status},(err,response)  => {
-		res.redirect("organizations/admin-requests");
+		res.redirect("admin-requests");
 	})
 })
 
@@ -97,7 +97,7 @@ router.post('/:id', (req, res, next) => {
 
   Organization.findByIdAndUpdate(orgaId, updates, (err, organization) => {
     if (err){ return next(err); }
-    return res.redirect('/organization');
+    return res.redirect('organizations');
   });
 });
 

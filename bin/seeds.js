@@ -117,7 +117,7 @@ const startup1 = new Organization({
 	category: 'startup',
 	status: 'pending',
 	ownerId: "59de0ff3969e5e08382e0de9",
-	location: { type: "Point", coordinates: [ 7.4480174, 9.0389314] }
+	location: { type: "Point", coordinates: [ 31.1914344, 30.0526922] }
 });
 
 
@@ -169,11 +169,10 @@ Organization.create(incubator4, (err, organization) => {
 	mongoose.connection.close();
 });
 
-
 Organization.create(startup1, (err, organization) => {
 	if (err) {
 	throw err;
 	}
 	console.log(organization);
 	mongoose.connection.close();
-})
+});
