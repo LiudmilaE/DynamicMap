@@ -21,7 +21,8 @@ let markers = [];
 function putMarkers(arr){
 	arr.forEach(function(organization){
 		if(organization.status === "accepted"){
-			let title = organization.name
+			let title = organization.name,
+      let country = organization.country,
 			let position = {
 				lat: organization.location.coordinates[1],
 				lng: organization.location.coordinates[0],
@@ -34,9 +35,9 @@ function putMarkers(arr){
 
 putMarkers(allOrganizations);
 
-function creatList (arr, cond) {
+function creatList (arr, key, property) {
 	return arr.filter(function(obj){
-		return (obj.category) === cond;
+		return (obj[key]) === property;
 	});
 }
 
@@ -57,9 +58,9 @@ function creatList (arr, cond) {
 $('#filter1').change( function () {
 	clearMarkers();
 	console.log("change was called");
-	let incubators = creatList(allOrganizations, "incubator");
-	let startups =creatList(allOrganizations, "startup");
-	
+	let incubators = creatList(allOrganizations, "category", "incubator");
+	let startups =creatList(allOrganizations, "category", "startup");
+
 
 	$("#filter1 option:selected" ).each(function() {
 		console.log($( this ).text());
