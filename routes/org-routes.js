@@ -6,7 +6,7 @@ const Organization = require('../models/organization');
 const { ensureLoggedIn } = require('../middlewares/auth');
 
 
-router.get('/',  ensureLoggedIn, (req,res,next) => {
+router.get('/', (req,res,next) => {
 	 Organization.find({} , (err, organizations) => {
 	 if (err) {return next(err)}
 	 res.render('organizations/index', {
@@ -52,9 +52,20 @@ router.post('/new', ensureLoggedIn, (req, res, next) => {
 	});
 });
 
-router.post('/:id', ensureLoggedIn, (req,res,next) => {
+//TODO checkAdmin
+
+router.get('/admin-requests', ensureLoggedIn, (req,res,next) => {
+	 Organization.find({} , (err, organizations) => {
+	 if (err) {return next(err)}
+	 res.render('organizations/admin-requests', {
+		 organizations: organizations
+	 });
+ });
+});
+
+router.post('/admin-requests/:id', ensureLoggedIn, (req,res,next) => {
 	Organization.findByIdAndUpdate(req.params.id, {status: req.body.status},(err,response)  => {
-		res.redirect("/organizations");
+		res.redirect("organizations/admin-requests");
 	})
 })
 
