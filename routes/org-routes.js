@@ -64,7 +64,7 @@ router.get('/admin-requests', ensureLoggedIn, (req,res,next) => {
  });
 });
 
-router.post('/:id', ensureLoggedIn, (req,res,next) => {
+router.post('/:id/request', ensureLoggedIn, (req,res,next) => {
 	Organization.findByIdAndUpdate(req.params.id, {status: req.body.status},(err,response)  => {
 		res.redirect("organizations/admin-requests"); //????
 	})
@@ -79,26 +79,31 @@ router.get('/:org_id/edit', ensureLoggedIn, (req, res, next) => {
   });
 });
 
-router.post('/:org_id', (req, res, next) => {
-  const orgaId = req.params.org_id;
+router.post('/:org_id/edit', (req, res, next) => {
+	let location = {
+		type: 'Point',
+		coordinates: [req.body.longitude, req.body.latitude]
+	};
 
-  /*
-   * Create a new object with all of the information from the request body.
-   * This correlates directly with the schema of Product
-   */
-  const updates = {
-	  name: req.body.name,
-	  description: req.body.description,
-	  email: req.body.email,
-	  phone: req.body.phone,
-		address: req.body.address,
-		category:req.category.address,
-		status:req.category.status,
-  };
-
-  Organization.findByIdAndUpdate(orgaId, updates, (err, organization) => {
+  Organization.findByIdAndUpdate(req.params.org_id, {
+		name: req.body.name,
+		description: req.body.description,
+		contacts: {
+			email: req.body.email,
+			phone: req.body.phone,
+		},
+		address: {
+			zip: req.body.zip,
+			country: req.body.country,
+			city: req.body.city,
+			street: req.body.street,
+		},
+		category: req.body.category,
+		
+		location: location,
+	}, (err, organization) => {
 	if (err){ return next(err); }
-	return res.redirect('organizations');
+	return res.redirect('/');
   });
 });
 
