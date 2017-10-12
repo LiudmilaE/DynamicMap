@@ -20,17 +20,9 @@ let markers = [];
 
 function putMarkers(arr){
 	arr.forEach(function(organization){
-<<<<<<< HEAD
-		let title = organization.name,
-		let position = {
-			lat: organization.location.coordinates[1],
-			lng: organization.location.coordinates[0],
-		};
-		var pin = new google.maps.Marker({ position, map, title });
-		markers.push(pin)
-=======
 		if(organization.status === "accepted"){
-			let title = organization.name
+			let title = organization.name,
+      let country = organization.country,
 			let position = {
 				lat: organization.location.coordinates[1],
 				lng: organization.location.coordinates[0],
@@ -38,19 +30,14 @@ function putMarkers(arr){
 			var pin = new google.maps.Marker({ position, map, title });
 			markers.push(pin)
 		}
->>>>>>> eceb021c42a600704ddc160a8d3ef8a08cde61a5
 	});
 }
 
 putMarkers(allOrganizations);
 
-function creatList (arr, cond) {
+function creatList (arr, key, property) {
 	return arr.filter(function(obj){
-<<<<<<< HEAD
-    return (obj.status) === cond;
-=======
-		return (obj.category) === cond;
->>>>>>> eceb021c42a600704ddc160a8d3ef8a08cde61a5
+		return (obj[key]) === property;
 	});
 }
 
@@ -71,9 +58,9 @@ function creatList (arr, cond) {
 $('#filter1').change( function () {
 	clearMarkers();
 	console.log("change was called");
-	let incubators = creatList(allOrganizations, "incubator");
-	let startups =creatList(allOrganizations, "startup");
-	
+	let incubators = creatList(allOrganizations, "category", "incubator");
+	let startups =creatList(allOrganizations, "category", "startup");
+
 
 	$("#filter1 option:selected" ).each(function() {
 		console.log($( this ).text());
