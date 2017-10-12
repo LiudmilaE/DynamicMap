@@ -29,12 +29,13 @@
 				<li>Status of the request: <%=organization.status%></li>
 			</ul>
 
-				
-		<button><a href="/organizations/<%=organization.id%>/edit">Edit</a></button>
+			<li>				
+				<a href="/organizations/<%=organization.id%>/edit" class="button is-success is-normal buttonrequest">Edit</a>
 		  
-		  <form action="/organizations/<%=organization.id%>/delete" method="POST">
-			<button type="submit">Delete</button>
-		  </form>
+		  	<form action="/organizations/<%=organization.id%>/delete" method="POST">
+				<button class="button is-danger buttonrequest" type="submit">Delete</button>
+		  	</form>
+			</li>
 				<hr>
 			<% }) %>
 		</ul>

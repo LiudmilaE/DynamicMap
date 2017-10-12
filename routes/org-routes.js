@@ -66,7 +66,7 @@ router.get('/admin-requests', ensureLoggedIn, (req,res,next) => {
 
 router.post('/:id/request', ensureLoggedIn, (req,res,next) => {
 	Organization.findByIdAndUpdate(req.params.id, {status: req.body.status},(err,response)  => {
-		res.redirect("organizations/admin-requests"); //????
+		res.redirect("/");
 	})
 }) 
 
