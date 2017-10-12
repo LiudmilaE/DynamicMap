@@ -1,5 +1,11 @@
 <h2> Hello + <%= user.username%> </h2>
 
+	<% if ( user.isAdmin) { %>
+	<div class="navbar-item">
+		<a href="/organizations/admin-requests" class="navbar-item">Check requests</a>
+	</div>
+	<% } %>
+
 
 <h3>
 Please find below your organizations :
