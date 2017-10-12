@@ -16,14 +16,14 @@
 				<a class="navbar-item" href="/">
 					<h1> <a href="/"> NEL&#398;N&#398;</a> </h1>
 				</a>
-				<button class="button navbar-burger">
+				<button class="button navbar-burger" data-target="navMenu">
 					<span></span>
 					<span></span>
 					<span></span>
 				</button>
 			</div>
 
-			<div class="navbar-menu">
+			<div class="navbar-menu" id="navMenu">
 				<div class="navbar-end">
 					<div class="navbar-item">
 						<a href="/organizations" class="navbar-item">View all organizations</a>
@@ -40,7 +40,8 @@
 					<% if (user) { %>
 
 						<div class="navbar-item">
-							<a href="/users/profile" class="navbar-item">My profile</a>
+							<a href="/users/profile" class="navbar-item">
+							<span class="icon is-small"><i class="fa fa-home"></i></span>My profile</a>
 						</div>
 						<div class="navbar-item">
 							<a href="/organizations/new" class="navbar-item">Add new organization</a>
