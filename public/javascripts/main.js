@@ -14,10 +14,10 @@ const map = new google.maps.Map(document.getElementById('map'), {
 		mapTypeId: 'roadmap'
 	});
 
-	var marker = new google.maps.Marker({
-					 position: afri,
-					 map: map
-				 });
+	// var marker = new google.maps.Marker({
+	// 				 position: afri,
+	// 				 map: map
+	// 			 });
 
 				 function addMarker(location, map) {
 					 // Add the marker at the clicked location, and add the next-available label
@@ -49,16 +49,26 @@ function putMarkers(arr){
 	});
 }
 
-putMarkers(allOrganizations);
 
 function creatList (arr, cond) {
 	return arr.filter(function(obj){
-		return (obj.category) === cond;
+    if (cond===obj.category){
+		return cond;
+  }
+    else if( cond === obj.status) {
+      return cond;
+    }
+
 	});
 }
+let orgaccepted = creatList(allOrganizations, "accepted");
+let orgpending = creatList(allOrganizations, "pending");
+putMarkers(orgaccepted);
 
+$('#approval').on('click', function() {
+})
 $('#filter1').change( function () {
-	
+
 	let incubators = creatList(allOrganizations, "incubator");
 	let startups =creatList(allOrganizations, "startup");
 	marker.setMap(null);
@@ -80,4 +90,3 @@ $("#filter1 option:selected" ).each(function() {
 
 
 });
-

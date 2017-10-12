@@ -52,4 +52,14 @@ router.post('/new', ensureLoggedIn, (req, res, next) => {
 	});
 });
 
+router.post('/:id', (req,res,next)=> {
+	Organization.findByIdAndUpdate(req.params.id, {status: req.body.status},(err,response)  => {
+		res.json("done")
+	})
+})
+
+
+
+
+
 module.exports = router;
