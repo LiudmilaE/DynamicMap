@@ -58,5 +58,37 @@ router.post('/:id', ensureLoggedIn, (req,res,next) => {
 	})
 })
 
+router.get('/:id/edit', (req, res, next) => {
+  const productId = req.params.id;
+
+  Organization.findById(organizationId, (err, organization) => {
+    if (err) { return next(err); }
+    res.render('/edit', { organization: organization });
+  });
+});
+
+router.post('/:id', (req, res, next) => {
+  const orgaId = req.params.id;
+
+  /*
+   * Create a new object with all of the information from the request body.
+   * This correlates directly with the schema of Product
+   */
+  const updates = {
+      name: req.body.name,
+      description: req.body.description,
+      email: req.body.email,
+      phone: req.body.phone,
+			address: req.body.address,
+			category:req.category.address,
+			status:req.category.status,
+  };
+
+  Organization.findByIdAndUpdate(orgaId, updates, (err, organization) => {
+    if (err){ return next(err); }
+    return res.redirect('/organization');
+  });
+});
+
 
 module.exports = router;
