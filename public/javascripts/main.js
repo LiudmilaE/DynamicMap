@@ -48,7 +48,6 @@ function putMarkers(arr){
 		markers.push(pin)
 	});
 }
-putMarkers(allOrganizations);
 
 function creatList (arr, cond) {
 	return arr.filter(function(obj){

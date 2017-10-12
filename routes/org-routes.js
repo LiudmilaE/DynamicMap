@@ -21,6 +21,7 @@ router.get('/new', ensureLoggedIn, (req, res, next) => {
 	});
 });
 
+
 router.post('/new', ensureLoggedIn, (req, res, next) => {
 	 // Get Params from POST
 	let location = {
@@ -68,13 +69,18 @@ router.post('/:id', ensureLoggedIn, (req,res,next) => {
 		res.redirect("admin-requests");
 	})
 })
+router.get('/edit', ensureLoggedIn, (req, res, next) => {
+	res.render('organizations/edit', {
+		errorMessage: req.flash('error'),
+	});
+});
 
 router.get('/:id/edit', (req, res, next) => {
-  const productId = req.params.id;
+  const orgaId = req.params.id;
 
   Organization.findById(organizationId, (err, organization) => {
     if (err) { return next(err); }
-    res.render('/edit', { organization: organization });
+    res.render('organizations/edit', { organization: organization });
   });
 });
 
