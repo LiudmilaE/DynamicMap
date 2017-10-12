@@ -59,7 +59,4 @@ router.post('/:id', ensureLoggedIn, (req,res,next) => {
 })
 
 
-
-
-
 module.exports = router;
