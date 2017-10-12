@@ -118,10 +118,16 @@ font-size: 13px;
 
 }
 
-.footer p {
-  text-align: center;
-  margin: 100px auto 5px;
+.footer {
+  margin: 10px auto 10px;
 }
+
+#mainFooter {
+  background-color: white;
+  padding: 2rem 1.5rem 2rem
+}
+
+
 /*Map Style*/
 #map {
   margin-top: 15px;
@@ -144,11 +150,6 @@ font-size: 13px;
 
 #legend img {
   vertical-align: middle;
-}
-
-#mainFooter {
-  padding-bottom: 20px;
-  background-color: white;
 }
 
 /*******Requests*******/
