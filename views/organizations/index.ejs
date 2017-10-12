@@ -21,11 +21,11 @@
 			<li>Status of the request: <%=organization.status%></li>
 
 			<% if (user.isAdmin && organization.status === "pending") { %>
-			<form action="<%=organization.id%>" method="POST">
+			<form action="/organizations/<%=organization.id%>" method="POST">
         <input name="status" type="hidden" value="accepted">
         <button>Accept</button>
       </form>
-      <form action="<%=organization.id%>" method="POST">
+      <form action="/organizations/<%=organization.id%>" method="POST">
         <input name="status" type="hidden" value="rejected">
         <button>Reject</button>
       </form>

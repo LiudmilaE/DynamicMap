@@ -6,7 +6,7 @@ const Organization = require('../models/organization');
 const { ensureLoggedIn } = require('../middlewares/auth');
 
 
-router.get('/', (req,res,next) => {
+router.get('/',  ensureLoggedIn, (req,res,next) => {
 	 Organization.find({} , (err, organizations) => {
 	 if (err) {return next(err)}
 	 res.render('organizations/index', {
