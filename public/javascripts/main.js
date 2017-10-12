@@ -48,21 +48,14 @@ function putMarkers(arr){
 		markers.push(pin)
 	});
 }
-
+putMarkers(allOrganizations);
 
 function creatList (arr, cond) {
 	return arr.filter(function(obj){
-    if (cond===obj.category){
-		return cond;
-  }
-    else if( cond === obj.status) {
-      return cond;
-    }
-
+    return (obj.category) === cond;
 	});
 }
 let orgaccepted = creatList(allOrganizations, "accepted");
-let orgpending = creatList(allOrganizations, "pending");
 putMarkers(orgaccepted);
 
 $('#filter1').change( function () {
