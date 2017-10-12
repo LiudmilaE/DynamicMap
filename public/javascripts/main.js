@@ -39,7 +39,7 @@ let markers = [];
 
 function putMarkers(arr){
 	arr.forEach(function(organization){
-		let title = organization.name
+		let title = organization.name,
 		let position = {
 			lat: organization.location.coordinates[1],
 			lng: organization.location.coordinates[0],
@@ -51,7 +51,7 @@ function putMarkers(arr){
 
 function creatList (arr, cond) {
 	return arr.filter(function(obj){
-    return (obj.category) === cond;
+    return (obj.status) === cond;
 	});
 }
 let orgaccepted = creatList(allOrganizations, "accepted");
