@@ -40,6 +40,12 @@
 					<% if (user) { %>
 
 					<div class="navbar-end">
+						<% if (user.isAdmin) { %>
+						<div class="navbar-item">
+							<a href="/organizations/admin-requests" class="navbar-item">Check requests</a>
+						</div>
+						<% } %>
+
 						<div class="navbar-item">
 							<a href="/organizations/new" class="navbar-item">Add new organization</a>
 						</div>
@@ -51,18 +57,18 @@
 					<% } %>
 				</div>
 			</div>
-
-
 		</nav>
 		</header>
 
-		<div class="container">
+		
 
 		<%- body -%>
 
-		</div>
+		
 		<footer class="footer" id="mainFooter">
+			<div class="content has-text-centered">
 			<p> &copy; Elodie Wanang &amp; Liudmyla Iefremova </p>
+			</div>
 		</footer>
 
 		<script type="text/javascript" src="/dist/js/map-icons.js" ></script>

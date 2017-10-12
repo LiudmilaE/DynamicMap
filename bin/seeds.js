@@ -82,6 +82,45 @@ const incubator3 = new Organization({
 	location: { type: "Point", coordinates: [ 36.805311, -1.2702478] }
 });
 
+const incubator4 = new Organization({
+	name: "Enspire Incubator",
+	description: "A platform for facilitating the growth of viable technology businesses in Nigeria. For more information - check up web site http://enspire.org.ng/",
+	contacts: {
+		email: "info@enspire.org.ng",
+		phone: "09 291 5340",
+		},
+	address: {
+		zip: " 900211",
+		country: "Nigeria",
+		city: "Abuja",
+		street: "3rd Floor, NEPZA HQ, No. 2 Zambesi Crescent, Maitama",
+		},
+	category: 'incubator',
+	status: 'pending',
+	ownerId: "59de0ff3969e5e08382e0de9",
+	location: { type: "Point", coordinates: [ 7.4480174, 9.0389314] }
+});
+
+const startup1 = new Organization({
+	name: "Instabug",
+	description: "Instabug is providing in-app feedback and bug reporting to mobile apps. It provides a seamless way for two-way communication with users, while providing detailed environment report for developers. For more information - check up web site instabug.org",
+	contacts: {
+		email: "info@instabug.com ",
+		phone: "09 291 5340",
+		},
+	address: {
+		zip: "12511",
+		country: "Egypt",
+		city: "Cairo",
+		street: "63 Syria, Mit Akaba, Al Agouzah, Giza Governorate",
+		},
+	category: 'startup',
+	status: 'pending',
+	ownerId: "59de0ff3969e5e08382e0de9",
+	location: { type: "Point", coordinates: [ 31.1914344, 30.0526922] }
+});
+
+
 User.create(admin1, (err, user) => {
 	if (err) {
 	throw err;
@@ -120,4 +159,20 @@ Organization.create(incubator3, (err, organization) => {
 	}
 	console.log(organization);
 	mongoose.connection.close();
-})
+});
+
+Organization.create(incubator4, (err, organization) => {
+	if (err) {
+	throw err;
+	}
+	console.log(organization);
+	mongoose.connection.close();
+});
+
+Organization.create(startup1, (err, organization) => {
+	if (err) {
+	throw err;
+	}
+	console.log(organization);
+	mongoose.connection.close();
+});

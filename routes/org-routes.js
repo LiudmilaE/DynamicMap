@@ -58,14 +58,14 @@ router.get('/admin-requests', ensureLoggedIn, (req,res,next) => {
 	 Organization.find({} , (err, organizations) => {
 	 if (err) {return next(err)}
 	 res.render('organizations/admin-requests', {
-		 organizations: organizations
+		 organizations
 	 });
  });
 });
 
-router.post('/admin-requests/:id', ensureLoggedIn, (req,res,next) => {
+router.post('/:id', ensureLoggedIn, (req,res,next) => {
 	Organization.findByIdAndUpdate(req.params.id, {status: req.body.status},(err,response)  => {
-		res.redirect("organizations/admin-requests");
+		res.redirect("admin-requests");
 	})
 })
 
@@ -78,7 +78,28 @@ router.get('/:id/edit', (req, res, next) => {
   });
 });
 
+router.post('/:id', (req, res, next) => {
+  const orgaId = req.params.id;
 
+  /*
+   * Create a new object with all of the information from the request body.
+   * This correlates directly with the schema of Product
+   */
+  const updates = {
+      name: req.body.name,
+      description: req.body.description,
+      email: req.body.email,
+      phone: req.body.phone,
+			address: req.body.address,
+			category:req.category.address,
+			status:req.category.status,
+  };
+
+  Organization.findByIdAndUpdate(orgaId, updates, (err, organization) => {
+    if (err){ return next(err); }
+    return res.redirect('organizations');
+  });
+});
 
 
 module.exports = router;
