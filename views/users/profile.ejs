@@ -1,9 +1,4 @@
-<h2> Hello + <%= theUser.name%> </h2>
-
-<p>
-  Fee:
-  <b> $<%= theLaunderer.fee %> </b>
-</p>
+<h2> Hello + <%= user.username%> </h2>
 
 
 <h3>
@@ -14,7 +9,7 @@ Please find below your organizations :
 	<ul>
 		<% organizations.forEach((organization) => {%>
 		<ul>
-			<li><a href="/organizations/<%=organization.id%>">
+			<li><a href="/<%=organization.id%>">
 				Name: <%=organization.name%> </a></li>
 			<li>Description: <%=organization.description%></li>
 			<li>Email: <%=organization.contacts.email%></li>
@@ -28,10 +23,10 @@ Please find below your organizations :
 			<li>Status of the request: <%=organization.status%></li>
 
 			<% if (user.isAdmin && organization.status === "pending") { %>
-			<form action="/organizations/<%=organization.id%>/edit/" method="POST">
+			<form action="/<%=organization.id%>/edit/" method="POST">
         <button>Edit</button>
       </form>
-      <form action="/organizations/<%=organization.id%>/delete" method="POST">
+      <form action="/<%=organization.id%>/delete" method="POST">
         <button type="submit">Delete</button>
       </form>
 
@@ -51,8 +46,3 @@ Please find below your organizations :
 		<% }) %>
 	</ul>
 </div>
-
-
-<a href="/launderers">
-  Find Another Launderer
-</a>
