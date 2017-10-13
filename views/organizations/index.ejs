@@ -6,6 +6,7 @@
 <div class="requestdetails">
 	<ul>
 		<% organizations.forEach((organization) => {%>
+		<% if (organization.status === "accepted") {%>
 		<ul>
 			<li><a href="/organizations/<%=organization.id%>">
 				<label for="">Name: </label><%=organization.name%> </a></li>
@@ -23,6 +24,7 @@
 			</li>
 			<hr>
 		</ul>
+		<% } %>
 		<% }) %>
 	</ul>
 </div>

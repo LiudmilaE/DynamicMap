@@ -77,7 +77,7 @@ const incubator3 = new Organization({
 		street: "M2, Mirage Towers, Westlands, Chiromo Road",
 		},
 	category: 'incubator',
-	status: 'pending',
+	status: 'accepted',
 	ownerId: "59de0ff3969e5e08382e0de9",
 	location: { type: "Point", coordinates: [ 36.805311, -1.2702478] }
 });
@@ -115,9 +115,28 @@ const startup1 = new Organization({
 		street: "63 Syria, Mit Akaba, Al Agouzah, Giza Governorate",
 		},
 	category: 'startup',
-	status: 'pending',
+	status: 'accepted',
 	ownerId: "59de0ff3969e5e08382e0de9",
 	location: { type: "Point", coordinates: [ 31.1914344, 30.0526922] }
+});
+
+const startup2 = new Organization({
+	name: "Jamii Africa",
+	description: "EdgePoint Digital Ltd. For more information - check up web site jamiiafrica.com",
+	contacts: {
+		email: "info@jamiiafrica.com ",
+		phone: "255 222 664 851",
+		},
+	address: {
+		zip: "000001",
+		country: "Tanzania",
+		city: "Dar es Salaam",
+		street: "Plot 11 Ada Estate",
+		},
+	category: 'startup',
+	status: 'accepted',
+	ownerId: "59de0ff3969e5e08382e0de9",
+	location: { type: "Point", coordinates: [ 39.2655765, -6.7850744] }
 });
 
 
@@ -170,6 +189,14 @@ Organization.create(incubator4, (err, organization) => {
 });
 
 Organization.create(startup1, (err, organization) => {
+	if (err) {
+	throw err;
+	}
+	console.log(organization);
+	mongoose.connection.close();
+});
+
+Organization.create(startup2, (err, organization) => {
 	if (err) {
 	throw err;
 	}

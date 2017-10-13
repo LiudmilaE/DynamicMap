@@ -2,8 +2,7 @@
 	<div class="titlerequest">
 		<h2>Organization's requests</h2>
 		<% if (user.isAdmin ) { %>
-		<h3>It's time to work !</h3>
-		<h4>Take a look at our contributors' requests </h4>
+		<h3>It's time to work ! Take a look at our contributors' requests:</h3>
 		<% } %>
 	</div>
 
@@ -26,13 +25,13 @@
 				<li>Status of the request: <%=organization.status%></li>
 			</ul>
 			<li>
-			<form action="/organizations/<%=organization.id%>" method="POST">
+			<form action="/organizations/<%=organization.id%>/request" method="POST">
 					<input name="status" type="hidden" value="accepted">
 					<button class="button is-success is-normal buttonrequest">Accept</button>
 				</form>
-				<form action="/organizations/<%=organization.id%>" method="POST">
+				<form action="/organizations/<%=organization.id%>/request" method="POST">
 					<input name="status" type="hidden" value="rejected">
-					<button class="button is-normal buttonrequest">Reject</button>
+					<button class="button is-danger buttonrequest">Reject</button>
 			  </form>
 			</li>
 			  <hr>

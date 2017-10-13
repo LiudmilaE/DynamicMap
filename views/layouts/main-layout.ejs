@@ -25,9 +25,6 @@
 
 			<div id="navMenuDropping" class="navbar-menu">
 				<div class="navbar-end">
-					<div class="navbar-item">
-						<a href="/organizations" class="navbar-item">View all organizations</a>
-					</div>
 					<% if (!user) { %>
 					<div class="navbar-item">
 						<a href="/login" class="navbar-item" >Login</a>
@@ -40,7 +37,7 @@
 					<% if (user) { %>
 						<div class="navbar-item has-dropdown is-hoverable" style="margin-left:20px">
 							<a class="navbar-link  is-active" href="">
-        My Profile
+        <span class="icon is-small"><i class="fa fa-home"></i></span>My Profile
         </a>
 
 						<div class="navbar-dropdown is-boxed is-right">
@@ -50,6 +47,9 @@
 							<a href="/logout" class="navbar-item">Logout</a>
 							</div>
 					<% } %>
+					<div class="navbar-item">
+						<a href="/organizations" class="navbar-item">Details of all organizations </a>
+					</div>
 				</div>
 			</div>
 		</div>
