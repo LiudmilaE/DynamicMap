@@ -21,8 +21,8 @@ let markers = [];
 function putMarkers(arr){
 	arr.forEach(function(organization){
 		if(organization.status === "accepted"){
-			let title = organization.name,
-      let country = organization.country,
+			let title = organization.name;
+      let country = organization.country;
 			let position = {
 				lat: organization.location.coordinates[1],
 				lng: organization.location.coordinates[0],
@@ -72,6 +72,17 @@ $('#filter1').change( function () {
 					putMarkers(startups);
 					break;
 			}
+		});
+})
+$('#searchname').change( function () {
+  console.log($(this).val());
+	console.log("change was called");
+	let organizations = creatList(allOrganizations, "name", $(this).val());
+
+
+	$("#searchname").keyup(function() {
+      clearMarkers();
+      putMarkers(organizations);
 		});
 })
 

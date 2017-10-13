@@ -38,6 +38,10 @@ const organizationSchema = new Schema({
 			required: true,
 			ref: 'User',
 		},
+	region: {
+		type: String,
+		required:true
+	},
 	location: { type: { type: String }, coordinates: [Number] }
 });
 

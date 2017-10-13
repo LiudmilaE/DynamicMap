@@ -8,17 +8,17 @@
 		<% organizations.forEach((organization) => {%>
 		<ul>
 			<li><a href="/organizations/<%=organization.id%>">
-				Name: <%=organization.name%> </a></li>
-			<li>Description: <%=organization.description%></li>
-			<li>Email: <%=organization.contacts.email%></li>
-			<li>Phone: <%=organization.contacts.phone%></li>
-			<li>Address: <%=organization.address.street%>,
+				<label for="">Name: </label><%=organization.name%> </a></li>
+			<li><label for="">Description: </label><%=organization.description%></li>
+			<li><label for="">Email: </label><%=organization.contacts.email%></li>
+			<li><label for="">Phone: </label><%=organization.contacts.phone%></li>
+			<li><label for="">Address: </label><%=organization.address.street%>,
 				<%=organization.address.city%>,
 				<%=organization.address.zip%>,
 				<%=organization.address.country%>
 			</li>
-			<li>Category: <%=organization.category%></li>
-			<li>Status of the request: <%=organization.status%></li>
+			<li><label for="">Category: </label><%=organization.category%></li>
+			<li><label for="">Status of the request: </label><%=organization.status%></li>
       </form>
 			</li>
 			<hr>

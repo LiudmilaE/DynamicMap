@@ -14,16 +14,16 @@
 		<nav class="navbar " role="navigation" aria-label="main navigation">
 			<div class="navbar-brand">
 				<a class="navbar-item" href="/">
-					<h1> <a href="/"> NEL&#398;N&#398;</a> </h1>
+					<h1> <a href="/"> NEL&#398;NE</a> </h1>
 				</a>
-				<button class="button navbar-burger">
+				<button class="button navbar-burger burger" data-target="navMenuDropping">
 					<span></span>
 					<span></span>
 					<span></span>
 				</button>
 			</div>
 
-			<div class="navbar-menu">
+			<div id="navMenuDropping" class="navbar-menu">
 				<div class="navbar-end">
 					<div class="navbar-item">
 						<a href="/organizations" class="navbar-item">View all organizations</a>
@@ -38,23 +38,21 @@
 					</div>
 					<% } %>
 					<% if (user) { %>
+						<div class="navbar-item has-dropdown is-hoverable" style="margin-left:20px">
+							<a class="navbar-link  is-active" href="">
+        My Profile
+        </a>
 
-						<div class="navbar-item">
-							<a href="/users/profile" class="navbar-item">My profile</a>
-						</div>
-						<div class="navbar-item">
+						<div class="navbar-dropdown is-boxed is-right">
 							<a href="/organizations/new" class="navbar-item">Add new organization</a>
-						</div>
-						<div class="navbar-item">
-							<a href="/users/profile" class="navbar-item">All my spots</a>
-						</div>
 
-						<div class="navbar-item">
+							<a href="/users/profile" class="navbar-item">All my spots</a>
 							<a href="/logout" class="navbar-item">Logout</a>
-						</div>
+							</div>
 					<% } %>
 				</div>
 			</div>
+		</div>
 		</nav>
 		</header>
 

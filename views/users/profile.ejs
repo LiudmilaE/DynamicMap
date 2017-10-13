@@ -1,14 +1,15 @@
-<div class="container">
-	<h2> Hello + <%= user.username%> </h2>
+<% if ( user.isAdmin) { %>
 
-	<% if ( user.isAdmin) { %>
-	<div class="navbar-item">
-		<a href="/organizations/admin-requests" class="navbar-item">Check requests</a>
-	</div>
-	<% } %>
+  <div class="container">
+	<h2 class="logintitle"> Hi <%= user.username%> , </h2>
 
 
-	<h3>Please find below your organizations :</h3>
+
+
+
+
+	<h3 class="loginsubtitle"> Please find below your organizations </h3>
+  <h4 style="font-style:italic" class="center" > You can either update information or just delete the spots if they don't exist anymore.</h4>
 
 	<div class="requestdetails">
 		<ul>
@@ -28,9 +29,9 @@
 				<li>Status of the request: <%=organization.status%></li>
 			</ul>
 
-				
+
 		<button><a href="/organizations/<%=organization.id%>/edit">Edit</a></button>
-		  
+
 		  <form action="/organizations/<%=organization.id%>/delete" method="POST">
 			<button type="submit">Delete</button>
 		  </form>
@@ -39,3 +40,5 @@
 		</ul>
 	</div>
 </div>
+
+	<% } %>

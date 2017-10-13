@@ -23,6 +23,7 @@ a {
 }
 .container {
   margin-left: 25%;
+  margin-right: 25%;
 }
 
 /*********navbar/sidebar*********/
@@ -35,6 +36,9 @@ a {
   background-color: #34C6C9;
   z-index: 28;
   margin-top : 0px;
+}
+.navbar{
+  padding: 15px;
 }
 
 .navbar-brand h1 {
@@ -180,6 +184,24 @@ margin: 10px;
 
 .requestdetails label {
   font-weight: bold;
+}
+
+
+/*form */
+
+.logintitle{
+font-size: 40px;
+text-align: center;
+margin: 30px;
+}
+.loginsubtitle{
+font-size: 30px;
+text-align: center;
+margin: 30px;
+}
+.center{
+text-align: center;
+margin: 10px;
 }
 
 /***************form ****************/
